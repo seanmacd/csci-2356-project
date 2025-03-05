@@ -116,7 +116,7 @@ This is the back-end (API) of the application. This directory was set up manuall
 
 # Group Members
 
-* Connor (Jamison) McNeil
+* Connor (Jamieson) McNeil
 * Sean MacDougall
 * Wenda Tan
 * Badhan Dasgupta
