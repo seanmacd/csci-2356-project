@@ -4,7 +4,7 @@ import { LarchLeafPage } from './leafs/Larch'
 import { RedMapleLeafPage } from './leafs/RedMaple'
 import { YellowBirchLeafPage } from './leafs/YellowBirch'
 import { SugarMapleLeafPage } from './leafs/SugarMaple'
-import { RedOakLeafPage } from './leafs/Red-Oak'
+import { RedOakLeafPage } from './leafs/RedOak'
 
 const pages: Record<string, JSX.Element> = {
   'yellow-birch': <YellowBirchLeafPage />,
