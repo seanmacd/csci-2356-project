@@ -1,4 +1,21 @@
 .fox-tree-logo {
-    width: 30vmin;
-    height: 30vmin;
+    width: 80vmin;
+    height: 80vmin;
 }
+
+.spacing {
+    margin-top: 20px;
+}
+
+.button_spacing{
+    margin-bottom: 20px;
+}
+
+.project_font {
+    font-family: 'Caveat', cursive;
+}
+
+.body_background {
+    background-color: #C4A484;
+}
+
