@@ -1,17 +1,23 @@
-import fox_tree_logo from '../../assets/fox_tree_logo.png'
+import yellow_birch_cartoon from '../../assets/yellow_birch_cartoon.png'
 import './styles.css'
 import {Button} from '../../components/Button'
+import { TangoText } from '../../components/TangoText'
 
 export function YellowBirchLeafPage() {
-  return (<div>
+  return (<div className="body_background">
+  
   <title>Yellow Birch Game</title>
 
-  <header className="row-auto bg-amber-950"></header>
+  <header className="row-auto bg-amber-950"><div className="box-border size 32 border-3 py-3 px-5 bg-amber-200 text-center text-black text-4xl project_font font-bold">Yellow Birch</div></header>
 
   <main>
-    <div className="box-border size 32 border-2 py-6 px-8 bg-amber-200 text-center text-black text-3xl">Yellow Birch</div>
-    <div className="flex justify-center"><img className="fox-tree-logo" src={fox_tree_logo} alt="Temporary Birch Tree Picture" /></div>
-    <div className="flex justify-center"><Button/></div>
+  <div className="flex justify-center spacing"><img className="fox-tree-logo" src={yellow_birch_cartoon} alt="yellow_birch_cartoon.png picture" /></div>
+    
+    <div className="flex justify-center spacing button_spacing"><Button/></div>
+
+    <div className="spacing">
+      <TangoText text="This is a Yellow Birch" />
+    </div>
   </main>
 
   </div>)
