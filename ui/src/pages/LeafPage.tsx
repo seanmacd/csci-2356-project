@@ -1,17 +1,14 @@
 import {JSX} from 'react'
 import {useParams} from 'react-router'
-import { LarchLeafPage } from './leafs/Larch'
-import { RedMapleLeafPage } from './leafs/RedMaple'
-import { YellowBirchLeafPage } from './leafs/YellowBirch'
-import { SugarMapleLeafPage } from './leafs/SugarMaple'
-import { RedOakLeafPage } from './leafs/RedOak'
+
+import {LarchLeafPage, RedMapleLeafPage, RedOakLeafPage, SugarMapleLeafPage, YellowBirchLeafPage} from '@/pages/leafs'
 
 const pages: Record<string, JSX.Element> = {
   'yellow-birch': <YellowBirchLeafPage />,
-  'larch': <LarchLeafPage />,
+  larch: <LarchLeafPage />,
   'red-oak': <RedOakLeafPage />,
-  'sugar-maple' : <SugarMapleLeafPage />,
-  'red-maple' : <RedMapleLeafPage />
+  'sugar-maple': <SugarMapleLeafPage />,
+  'red-maple': <RedMapleLeafPage />
 }
 
 export function LeafPage() {
@@ -23,4 +20,3 @@ export function LeafPage() {
 
   return pages[id]
 }
-

@@ -1,6 +1,5 @@
 // sean's page
-import { Header } from '../../components/Header'
-import {TangoText} from '../../components/TangoText'
+import {Button, Header, TangoText} from '@/components'
 
 export function RedOakLeafPage() {
   return (
@@ -15,9 +14,13 @@ export function RedOakLeafPage() {
         />
       </div>
       <div className="flex justify-center">
-        <button>Play Again</button>
+        <Button />
       </div>
-      <TangoText text="This is a red oak" />
+      <TangoText
+        text="This is a red oak.
+       Scientific Classification & Common Name: The northern red oak (Quercus rubra) is a deciduous tree native to North America.
+      "
+      />
     </>
   )
 }

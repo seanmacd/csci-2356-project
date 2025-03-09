@@ -1,4 +1,6 @@
-{/* Create footer component Sean*/}
+{
+  /* Create footer component Sean*/
+}
 
 export function Footer() {
   return (
@@ -14,7 +16,9 @@ export function Footer() {
         </div>
       </div>
       <div className="text-center mt-4">
-        <p>Copyright © 2025 St. Margaret's Bay Area Woodland Conservation Site. Saint Mary's University, Halifax, NS</p>
+        <p>
+          Copyright © 2025 St. Margaret's Bay Area Woodland Conservation Site. Saint Mary's University, Halifax, NS
+        </p>
       </div>
     </footer>
   )

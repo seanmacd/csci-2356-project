@@ -1,15 +1,11 @@
 import {StrictMode, useState} from 'react'
 import {createRoot} from 'react-dom/client'
-import {BrowserRouter, Outlet, Routes, useParams} from 'react-router'
+import {BrowserRouter, Outlet, Route, Routes} from 'react-router'
+
+import {Footer} from '@/components'
+import {HomePage, LeafPage, NotFound} from '@/pages'
 
 import './index.css'
-
-import {Route} from 'react-router'
-
-import {HomePage} from './pages/HomePage'
-import {LeafPage} from './pages/LeafPage'
-import {NotFound} from './pages/NotFound'
-import { Footer } from './components/Footer'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -49,5 +45,3 @@ function DemoPage() {
     </div>
   )
 }
-
-

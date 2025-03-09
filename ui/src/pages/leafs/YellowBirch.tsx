@@ -1,9 +1,7 @@
-import yellow_birch_cartoon from '../../assets/yellow_birch_cartoon.png'
+import yellow_birch_cartoon from '@/assets/yellow_birch_cartoon.png'
+import {Button, TangoText} from '@/components'
 
 import './styles.css'
-
-import {Button} from '../../components/Button'
-import {TangoText} from '../../components/TangoText'
 
 export function YellowBirchLeafPage() {
   return (

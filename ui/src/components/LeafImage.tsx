@@ -1,1 +1,3 @@
-{/* Create leaf image component Connor*/}
+{
+  /* Create leaf image component Connor*/
+}
