@@ -1,11 +1,12 @@
 // sean's page
+import { Header } from '../../components/Header'
 import {TangoText} from '../../components/TangoText'
 
 export function RedOakLeafPage() {
   return (
     <>
       <title>Red Oak</title>
-      <header className="bg-amber-800 p-4 text-center text-white text-4xl"> Red Oak </header>
+      <Header />
       <div className="flex justify-center">
         {/* Temp image */}
         <img
