@@ -11,7 +11,7 @@ export function TangoText({text}: {text: string}) {
       isOpen={open}
       positions="right"
       content={
-        <div className="bg-slate-100 p-4 rounded border ml-2 flex gap-4 justify-between min-w-72">
+        <div className="bg-slate-100 p-4 rounded border ml-2 flex gap-4 justify-between w-[50vw]">
           <div>{text}</div>
           <button className="bg-slate-100 rounded p-1 cursor-pointer hover:bg-slate-200" onClick={() => setOpen(false)}>
             <X />
@@ -20,7 +20,7 @@ export function TangoText({text}: {text: string}) {
       }
     >
       <button className="text-4xl" onClick={() => setOpen(true)}>
-        <img src={TangoTalk} alt="Tango Talk" />
+        <img src={TangoTalk} alt="Tango Talk" className="w-[35vw]"/>
       </button>
     </Popover>
   )

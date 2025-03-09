@@ -9,6 +9,7 @@ import {Route} from 'react-router'
 import {HomePage} from './pages/HomePage'
 import {LeafPage} from './pages/LeafPage'
 import {NotFound} from './pages/NotFound'
+import { Footer } from './components/Footer'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -31,7 +32,7 @@ function Layout() {
       <div className="min-h-screen">
         <Outlet />
       </div>
-      <footer className="bg-emerald-800 text-slate-50 p-4 text-center">The Thinkers Solutions Inc. 2025</footer>
+      <Footer />
     </>
   )
 }
