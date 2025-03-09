@@ -6,7 +6,6 @@ import {Footer} from '@/components'
 import {HomePage, LeafPage, NotFound} from '@/pages'
 
 import './index.css'
-
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
@@ -25,7 +24,7 @@ createRoot(document.getElementById('root')!).render(
 function Layout() {
   return (
     <>
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-orange-100">
         <Outlet />
       </div>
       <Footer />
