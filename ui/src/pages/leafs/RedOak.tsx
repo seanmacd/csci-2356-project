@@ -1,5 +1,6 @@
 // sean's page
-import {Button, Header, TangoText} from '@/components'
+import {Button, Header, LeafImage, TangoText} from '@/components'
+import yellow_birch_cartoon from '@/assets/yellow_birch_cartoon.png'
 
 export function RedOakLeafPage() {
   return (
@@ -8,8 +9,8 @@ export function RedOakLeafPage() {
       <Header />
       <div className="flex justify-center">
         {/* Temp image */}
-        <img
-          src="https://www.tree-guide.com/images/styles/600x450-copy_/public/northern-red-oak-leaf.jpg?itok=7ntio_26"
+        <LeafImage
+          src={yellow_birch_cartoon}
           alt="Image of red oak leaf"
         />
       </div>
@@ -17,9 +18,7 @@ export function RedOakLeafPage() {
         <Button />
       </div>
       <TangoText
-        text="This is a red oak.
-       Scientific Classification & Common Name: The northern red oak (Quercus rubra) is a deciduous tree native to North America.
-      "
+        text="This is a red oak tree leaf, in the fall they turn red."
       />
     </>
   )
