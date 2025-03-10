@@ -5,7 +5,7 @@ import {LarchLeafPage, RedMapleLeafPage, RedOakLeafPage, SugarMapleLeafPage, Yel
 
 const pages: Record<string, JSX.Element> = {
   'yellow-birch': <YellowBirchLeafPage />,
-  larch: <LarchLeafPage />,
+  'larch': <LarchLeafPage />,
   'red-oak': <RedOakLeafPage />,
   'sugar-maple': <SugarMapleLeafPage />,
   'red-maple': <RedMapleLeafPage />
