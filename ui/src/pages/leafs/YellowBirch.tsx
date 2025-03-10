@@ -1,5 +1,6 @@
 import yellow_birch_cartoon from '@/assets/yellow_birch_cartoon.png'
 import {Button, TangoText} from '@/components'
+import yellowbirchtest from '@/assets/yellowbirchtest.mp3'
 
 import './styles.css'
 
@@ -24,7 +25,7 @@ export function YellowBirchLeafPage() {
         </div>
 
         <div className="spacing">
-          <TangoText text="This is a Yellow Birch" />
+          <TangoText text="This is a Yellow Birch" audio={yellowbirchtest}/>
         </div>
       </main>
     </div>

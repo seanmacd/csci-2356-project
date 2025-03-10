@@ -2,11 +2,10 @@ import {X} from '@phosphor-icons/react'
 import {useState} from 'react'
 import {Popover} from 'react-tiny-popover'
 
-import Redoak from '@/assets/redoak.mp3'
 import TangoTalk from '@/assets/tango-talking.png'
 import { PlayAudio } from './PlayAudio'
 
-export function TangoText({text}: {text: string}) {
+export function TangoText({text, audio}: {text: string, audio: string}) {
   const [open, setOpen] = useState(true)
   return (
     <div>
@@ -31,7 +30,7 @@ export function TangoText({text}: {text: string}) {
           <img src={TangoTalk} alt="Tango Talk" className="w-[35vw]" />
         </button>
       </Popover>
-      <PlayAudio src={Redoak} />
+      <PlayAudio src={audio} />
     </div>
   )
 }
