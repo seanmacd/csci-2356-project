@@ -1,4 +1,4 @@
 export function NotFound() {
-  // TODO: add 404 page content
+  // TODO: add and style 404 page content
   return <div>404</div>
 }
