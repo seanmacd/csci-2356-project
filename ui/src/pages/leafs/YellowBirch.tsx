@@ -1,6 +1,7 @@
-import yellow_birch_cartoon from '@/assets/yellow_birch_cartoon.png'
-import {Button, TangoText} from '@/components'
+import yellow_birch_cartoon from '@/assets/Yellow-Birch-Photoroom.png'
+import {Button, TangoText, Header} from '@/components'
 import yellowbirchtest from '@/assets/yellowbirchtest.mp3'
+import {LeafNameHeader} from '@/components/LeafNameHeader'
 
 import './styles.css'
 
@@ -9,12 +10,9 @@ export function YellowBirchLeafPage() {
     <div className="body_background">
       <title>Yellow Birch Game</title>
 
-      <header className="row-auto bg-amber-950">
-        <div className="box-border size 32 border-3 py-3 px-5 bg-amber-200 text-center text-black text-4xl project_font font-bold">
-          Yellow Birch
-        </div>
-      </header>
-
+      <Header>  
+      </Header>
+      <LeafNameHeader name="Yellow Birch" />
       <main>
         <div className="flex justify-center spacing">
           <img className="fox-tree-logo" src={yellow_birch_cartoon} alt="yellow_birch_cartoon.png picture" />
@@ -25,7 +23,7 @@ export function YellowBirchLeafPage() {
         </div>
 
         <div className="spacing">
-          <TangoText text="This is a Yellow Birch" audio={yellowbirchtest}/>
+          <TangoText text="This is a Yellow Birch, they've adapted to live in our salty climats!" audio={yellowbirchtest}/>
         </div>
       </main>
     </div>
