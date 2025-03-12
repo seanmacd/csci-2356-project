@@ -4,8 +4,8 @@
 
 import {Button, Header, LeafImage, TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
-import redMaple from '@/assets/Red-Maple-Photoroom.png'
-import redMapleAudio from '@/assets/Red-Maple.mp3'
+import redMaple from '@/assets/LeafPhotos/Red-Maple-Photoroom.png'
+import redMapleAudio from '@/assets/Audio/Red-Maple.mp3'
 
 
 export function RedMapleLeafPage() {

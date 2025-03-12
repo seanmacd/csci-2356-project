@@ -1,6 +1,6 @@
-import yellow_birch_cartoon from '@/assets/Yellow-Birch-Photoroom.png'
+import yellow_birch_cartoon from '@/assets/LeafPhotos/Yellow-Birch-Photoroom.png'
 import {Button, TangoText, Header} from '@/components'
-import yellowbirchtest from '@/assets/yellowbirchtest.mp3'
+import yellowbirchtest from '@/assets/Audio/yellowbirchtest.mp3'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 
 import './styles.css'

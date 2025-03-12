@@ -1,8 +1,8 @@
 // sean's page
-import redOakPhotoroom from '@/assets/Red-Oak-Photoroom.png'
+import redOakPhotoroom from '@/assets/LeafPhotos/Red-Oak-Photoroom.png'
 import {Button, Header, LeafImage, TangoText} from '@/components'
 import { LeafNameHeader } from '@/components/LeafNameHeader'
-import Redoak from '@/assets/redoak.mp3'
+import Redoak from '@/assets/Audio/redoak.mp3'
 
 export function RedOakLeafPage() {
   return (
