@@ -3,14 +3,19 @@
     add TangoText comonent to tell to user how to select a leaf,
     add footer comonent */
 }
+
+import Redoak from '@/assets/audio/redoak.mp3'
 import { LeafCard } from "@/components/LeafCard"
-import { Header } from "@/components"
+import { Header, HomeTangoText } from "@/components"
 import { LeafNameHeader } from "@/components"
+
 
 export function HomePage() {
   return <div>
     <Header></Header>
     <LeafNameHeader name="Home Page"/>
+
+    <HomeTangoText text="Explore and choose a leaf, press play to begin the game!" audio={Redoak} />
     
     <div className="my-2">
     <LeafCard 
