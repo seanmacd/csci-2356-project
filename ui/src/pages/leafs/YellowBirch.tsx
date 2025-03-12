@@ -1,5 +1,5 @@
 import yellow_birch_cartoon from '@/assets/Yellow-Birch-Photoroom.png'
-import {Button, TangoText, Header} from '@/components'
+import {PlayAgainButton, TangoText, Header} from '@/components'
 import yellowbirchtest from '@/assets/yellowbirchtest.mp3'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 
@@ -19,7 +19,7 @@ export function YellowBirchLeafPage() {
         </div>
 
         <div className="flex justify-center spacing button_spacing">
-          <Button />
+          <PlayAgainButton />
         </div>
 
         <div className="spacing">

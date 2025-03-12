@@ -1,6 +1,6 @@
 // sean's page
 import redOakPhotoroom from '@/assets/Red-Oak-Photoroom.png'
-import {Button, Header, LeafImage, TangoText} from '@/components'
+import {PlayAgainButton, Header, LeafImage, TangoText} from '@/components'
 import { LeafNameHeader } from '@/components/LeafNameHeader'
 import Redoak from '@/assets/redoak.mp3'
 
@@ -14,7 +14,7 @@ export function RedOakLeafPage() {
         <LeafImage src={redOakPhotoroom} alt="Image of red oak leaf" />
       </div>
       <div className="flex justify-center">
-        <Button />
+        <PlayAgainButton />
       </div>
       <TangoText text="This is a red oak tree leaf, in the fall they turn red." audio={Redoak} />
     </>

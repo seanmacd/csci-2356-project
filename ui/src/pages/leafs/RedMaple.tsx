@@ -2,9 +2,10 @@
   /* Red Maple Page. Connor */
 }
 
-import {Button, Header, LeafImage, TangoText} from '@/components'
+import {PlayAgainButton, Header, LeafImage, TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 import redMaple from '@/assets/Red-Maple-Photoroom.png'
+import yellowbirchtest from '@/assets/yellowbirchtest.mp3'
 
 
 export function RedMapleLeafPage() {
@@ -20,10 +21,10 @@ export function RedMapleLeafPage() {
         />
       </div>
       <div className="flex justify-center">
-        <Button />
+        <PlayAgainButton />
       </div>
       <TangoText
-        text="This is a red maple tree leaf, its on Canada's flag."
+        text="This is a red maple tree leaf, its on Canada's flag." audio={yellowbirchtest}
       />
     </>
   )
