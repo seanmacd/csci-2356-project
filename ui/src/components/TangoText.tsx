@@ -2,7 +2,7 @@ import {X} from '@phosphor-icons/react'
 import {useState} from 'react'
 import {Popover} from 'react-tiny-popover'
 
-import TangoTalk from '@/assets/tango-talking.png'
+import TangoTalk from '@/assets/tangoPhotos/tango-talking.png'
 import { PlayAudio } from './PlayAudio'
 
 export function TangoText({text, audio}: {text: string, audio: string}) {
