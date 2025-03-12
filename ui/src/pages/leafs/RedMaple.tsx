@@ -5,6 +5,7 @@
 import {Button, Header, LeafImage, TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 import redMaple from '@/assets/Red-Maple-Photoroom.png'
+import redMapleAudio from '@/assets/Red-Maple.mp3'
 
 
 export function RedMapleLeafPage() {
@@ -22,7 +23,7 @@ export function RedMapleLeafPage() {
       <div className="flex justify-center">
         <Button />
       </div>
-        <TangoText text="This is a red maple tree leaf, its on Canada's flag." audio={redMaple} />
+        <TangoText text="This is a red maple tree leaf, its on the Canadian flag!" audio={redMapleAudio} />
     </>
   )
 }
