@@ -1,3 +1,7 @@
+{
+    /* Create LeafCard component Wenda*/
+}
+
 import RedMapleLeaf  from "@/assets/Red-Maple-Photoroom.png";
 import RedOak from "@/assets/Red-Oak-Photoroom.png";
 import SugarMaple from "@/assets/Sugar-Maple-Photoroom.png";
