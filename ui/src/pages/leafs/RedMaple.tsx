@@ -22,9 +22,7 @@ export function RedMapleLeafPage() {
       <div className="flex justify-center">
         <Button />
       </div>
-      <TangoText
-        text="This is a red maple tree leaf, its on Canada's flag."
-      />
+        <TangoText text="This is a red maple tree leaf, its on Canada's flag." audio={redMaple} />
     </>
   )
 }
