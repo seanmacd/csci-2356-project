@@ -1,4 +1,4 @@
-import error from '@/assets/404-Tango.png'
+import error from '@/assets/tangoPhotos/404-Tango.png'
 import {Header} from '@/components'
 
 {

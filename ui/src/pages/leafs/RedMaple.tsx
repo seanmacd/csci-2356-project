@@ -4,8 +4,8 @@
 
 import {PlayAgainButton, Header, LeafImage, TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
-import redMaple from '@/assets/Red-Maple-Photoroom.png'
-import redMapleAudio from '@/assets/Red-Maple.mp3'
+import redMaple from '@/assets/leafPhotos/Red-Maple-Photoroom.png'
+import redMapleAudio from '@/assets/audio/Red-Maple.mp3'
 
 
 

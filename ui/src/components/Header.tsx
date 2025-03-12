@@ -1,4 +1,4 @@
-import Icon from '@/assets/icon.svg'
+import Icon from '@/assets/otherPhotos/icon.svg'
 
 {
   /* Create header component Sean*/

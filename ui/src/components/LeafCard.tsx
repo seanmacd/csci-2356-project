@@ -2,13 +2,13 @@
     /* Create LeafCard component Wenda*/
 }
 
-import RedMapleLeaf  from "@/assets/Red-Maple-Photoroom.png";
-import RedOak from "@/assets/Red-Oak-Photoroom.png";
-import SugarMaple from "@/assets/Sugar-Maple-Photoroom.png";
-import YellowBirch from "@/assets/Yellow-Birch-Photoroom.png";
-import Larch from "@/assets/Larch-Photoroom.png";
+import RedMapleLeaf  from "@/assets/leafPhotos/Red-Maple-Photoroom.png";
+import RedOak from "@/assets/leafPhotos/Red-Oak-Photoroom.png";
+import SugarMaple from "@/assets/leafPhotos/Sugar-Maple-Photoroom.png";
+import YellowBirch from "@/assets/leafPhotos/Yellow-Birch-Photoroom.png";
+import Larch from "@/assets/leafPhotos/Larch-Photoroom.png";
 import {PlayButton} from '@/components';
-import TangoBust from '@/assets/TangoBust.png';
+import TangoBust from '@/assets/tangoPhotos/TangoBust.png';
 
 const images = {RedMapleLeaf, RedOak, SugarMaple, Larch, YellowBirch};
 
