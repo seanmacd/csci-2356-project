@@ -24,7 +24,7 @@ createRoot(document.getElementById('root')!).render(
 function Layout() {
   return (
     <>
-      <div className="min-h-screen bg-orange-100">
+      <div className="min-h-screen bg-orange-100 m-0 p-0">
         <Outlet />
       </div>
       <Footer />
