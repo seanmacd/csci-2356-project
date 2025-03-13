@@ -1,0 +1,35 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install pnpm
+      run: |
+        npm i -g corepack
+        corepack enable
+        corepack prepare pnpm@latest --activate
+
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Build project
+      run: pnpm build
+
+    - name: Deploy to server
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan ${{ SERVER_HOST }} >> ~/.ssh/known_hosts
+        rsync -avz --delete --progress .dist Dockerfile nginx.conf ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/project/ui
+        ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "cd ~/project && docker compose restart && docker system prune -af"
