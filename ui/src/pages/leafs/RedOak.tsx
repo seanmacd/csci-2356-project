@@ -16,7 +16,7 @@ export function RedOakLeafPage() {
       <div className="flex justify-center">
         <PlayAgainButton />
       </div>
-      <TangoText text="This is a red oak tree leaf, in the fall they turn red." audio={Redoak} />
+      <TangoText text="This is a red oak tree leaf testing, in the fall they turn red." audio={Redoak} />
     </>
   )
 }
