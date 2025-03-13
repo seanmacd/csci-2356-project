@@ -1,4 +1,4 @@
-// sean's page
+// sean's page this page is cool
 import redOakPhotoroom from '@/assets/leafPhotos/Red-Oak-Photoroom.png'
 import {PlayAgainButton, Header, LeafImage, TangoText} from '@/components'
 import { LeafNameHeader } from '@/components/LeafNameHeader'
