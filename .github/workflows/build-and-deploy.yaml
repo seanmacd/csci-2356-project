@@ -36,4 +36,4 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
         rsync -avz --delete --progress dist Dockerfile nginx.conf ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:~/project/ui
-        ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "cd ~/project && docker compose restart && docker system prune -af"
+        ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "cd ~/project && docker compose build && docker compose up -d && docker system prune -af"
