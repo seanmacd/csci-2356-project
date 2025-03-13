@@ -50,9 +50,3 @@ export function LeafCard({name, description, image, redirLink}: Details) {
     </div>
   )
 }
-
-/**
- * <img src={images[image]} alt={name} className="w-1/2"/>
-            <h2 className="text-3xl font-bold">{name}</h2>
-            <p className="text-lg">{description}</p>
- */
