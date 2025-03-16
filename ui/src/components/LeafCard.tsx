@@ -1,8 +1,8 @@
-import Larch from '@/assets/leafPhotos/Larch-Photoroom.png'
-import RedMapleLeaf from '@/assets/leafPhotos/Red-Maple-Photoroom.png'
-import RedOak from '@/assets/leafPhotos/Red-Oak-Photoroom.png'
-import SugarMaple from '@/assets/leafPhotos/Sugar-Maple-Photoroom.png'
-import YellowBirch from '@/assets/leafPhotos/Yellow-Birch-Photoroom.png'
+import Larch from '@/assets/leafPhotos/Larch_Real.png'
+import RedMapleLeaf from '@/assets/leafPhotos/RedMaple_Real.png'
+import RedOak from '@/assets/leafPhotos/RedOak_Real.png'
+import SugarMaple from '@/assets/leafPhotos/SugarMaple_Real.png'
+import YellowBirch from '@/assets/leafPhotos/YellowBirch_Real.png'
 import TangoBust from '@/assets/tangoPhotos/TangoBust.png'
 import {PlayButton} from '@/components'
 
