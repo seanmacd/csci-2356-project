@@ -1,7 +1,7 @@
 //Rongkun's Page
 
 import sugarMaple from '@/assets/sugarMaple.mp3'
-import sugarMaplePhoto from '@/assets/Sugar-Maple-Photoroom.png'
+import sugarMaplePhoto from '@/assets/leapPhotos/Sugar-Maple-Photoroom.png'
 import {PlayAgainButton, TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 
