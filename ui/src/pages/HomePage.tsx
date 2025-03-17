@@ -1,3 +1,4 @@
+import { WelcomeSection } from '@/components'
 import type {LeafCardProps} from '@/components/LeafCard'
 
 import {LeafCard} from '@/components/LeafCard'
@@ -46,5 +47,10 @@ export function HomePage() {
     <LeafCard key={name} name={name} description={description} image={image} href={href} />
   ))
 
-  return <div className="flex flex-col gap-8">{leafCards}</div>
+  return (
+    <div> 
+      <WelcomeSection />
+  <div className="flex flex-col gap-8">{leafCards}</div>
+  </div>
+)
 }
