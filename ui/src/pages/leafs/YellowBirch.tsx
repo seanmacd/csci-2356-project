@@ -1,25 +1,25 @@
+// wenda's page
+
 import YellowBirch from '@/assets/audio/YellowBirchAudio.mp3'
 import yellow_birch_cartoon from '@/assets/leafPhotos/YellowBirch_Cartoon.png'
-import {PlayAgainButton, TangoText} from '@/components'
-import {LeafNameHeader} from '@/components/LeafNameHeader'
-
-import './styles.css'
+import { PlayAgainButton, TangoText } from '@/components'
+import { LeafNameHeader } from '@/components/LeafNameHeader'
 
 export function YellowBirchLeafPage() {
   return (
-    <div className="body_background">
+    <div >
       <title>Yellow Birch Game</title>
+
       <LeafNameHeader name="Yellow Birch" />
+
       <main>
-        <div className="flex justify-center spacing">
+        <div className="flex justify-center ">
           <img className="fox-tree-logo" src={yellow_birch_cartoon} alt="yellow_birch_cartoon.png picture" />
         </div>
-
-        <div className="flex justify-center spacing button_spacing">
+        <div className="flex justify-center  ">
           <PlayAgainButton />
         </div>
-
-        <div className="spacing">
+        <div >
           <TangoText
             text="This is a Yellow Birch, they've adapted to live in our salty climates!"
             audio={YellowBirch}
