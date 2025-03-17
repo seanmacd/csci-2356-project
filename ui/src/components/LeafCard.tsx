@@ -1,51 +1,37 @@
+import {useNavigate} from 'react-router'
+
 import Larch from '@/assets/leafPhotos/Larch_Real.png'
 import RedMapleLeaf from '@/assets/leafPhotos/RedMaple_Real.png'
 import RedOak from '@/assets/leafPhotos/RedOak_Real.png'
 import SugarMaple from '@/assets/leafPhotos/SugarMaple_Real.png'
 import YellowBirch from '@/assets/leafPhotos/YellowBirch_Real.png'
-import TangoBust from '@/assets/tangoPhotos/TangoBust.png'
-import {PlayButton} from '@/components'
-
-{
-  /* Create LeafCard component Wenda*/
-}
+import {Button} from '@/components/Button'
 
 const images = {RedMapleLeaf, RedOak, SugarMaple, Larch, YellowBirch}
 
-type LeafImage = keyof typeof images
+export type LeafCardImage = keyof typeof images
 
-interface Details {
+export type LeafCardProps = {
   name: string
   description: string
-  image: LeafImage
-  redirLink: string
+  image: LeafCardImage
+  href: string
 }
 
-export function LeafCard({name, description, image, redirLink}: Details) {
+export function LeafCard({name, description, image, href}: LeafCardProps) {
+  const navigate = useNavigate()
+
   return (
-    <div className="flex flex-col items-center">
-      <div className="relative flex justify-center items-center w-85 h-40 m-4">
-        <div className="box-border border-2 bg-amber-950 rounded-2xl w-85 h-40"></div>
-
-        <div className="absolute top- left-0 box-border border-2 bg-white rounded-2xl w-30 h-45 transform -translate-x6 -translate-y-.5">
-          <img src={images[image]} alt={name} className="my-7" />
+    <div className="flex flex-col sm:flex-row rounded-2xl overflow-hidden border-2">
+      <div className="bg-white flex-1 p-4">
+        <img src={images[image]} alt={name} className="w-full" />
+      </div>
+      <div className="flex flex-col gap-4 justify-between bg-amber-950 text-white p-4 flex-1">
+        <div>
+          <h2 className="text-xl font-bold mb-2">{name}</h2>
+          <p className="text-sm ">{description}</p>
         </div>
-
-        <div className="absolute top- right-0 box-border rounded-2xl w-50 h-45 transform -translate-x-3 translate-y-5">
-          <h2 className="text-2xl font-bold text-white">{name}</h2>
-        </div>
-
-        <div className="absolute top- right-0 box-border rounded-2xl w-50 h-45 transform -translate-x-3 translate-y-15">
-          <h3 className="text-sm text-white -my-3">{description}</h3>
-        </div>
-
-        <div className="absolute top- right-0 box-border rounded-2xl w-50 h-45 transform -translate-x-3 translate-y-29.5">
-          <PlayButton link={redirLink} />
-        </div>
-
-        <div className="absolute top- right-0 box-border rounded-2xl w-50 h-45 transform translate-x-29 translate-y-20">
-          <img src={TangoBust} alt="Tango" className="w-20" />
-        </div>
+        <Button onClick={() => navigate(href)}>Play this game</Button>
       </div>
     </div>
   )
