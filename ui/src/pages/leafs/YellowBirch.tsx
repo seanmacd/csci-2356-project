@@ -1,4 +1,5 @@
 // wenda's page
+// Has components for the button, header, tango bubble, and uses imported image and audio. 
 
 import YellowBirch from '@/assets/audio/YellowBirchAudio.mp3'
 import yellow_birch_cartoon from '@/assets/leafPhotos/YellowBirch_Cartoon.png'
