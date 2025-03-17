@@ -119,5 +119,4 @@ This is the back-end (API) of the application. This directory was set up manuall
 * Connor (Jamieson) McNeil
 * Sean MacDougall
 * Wenda Tan
-* Badhan Dasgupta
 * Rongkun Zhu
