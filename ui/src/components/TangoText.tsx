@@ -13,7 +13,7 @@ export function TangoText({text, audio}: {text: string, audio: string}) {
         isOpen={open}
         positions="right"
         content={
-          <div className="bg-white py-6 px-4 rounded-3xl border-2 border-amber-950 ml-2 flex gap-4 justify-between w-[60vw]">
+          <div className="bg-white py-6 px-4 rounded-3xl border-2 border-amber-950 ml-2 flex gap-4 justify-between w-[50vw]">
             <div className="font-bold text-amber-950 relative">
               {text}
               <button
