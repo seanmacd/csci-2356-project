@@ -1,6 +1,6 @@
-import yellow_birch_cartoon from '@/assets/leafPhotos/Yellow-Birch-Photoroom.png'
+import yellow_birch_cartoon from '@/assets/leafPhotos/YellowBirch_Cartoon.png'
 import {PlayAgainButton, TangoText, Header} from '@/components'
-import yellowbirchtest from '@/assets/audio/yellowbirchtest.mp3'
+import YellowBirch from '@/assets/audio/YellowBirchAudio.mp3'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 
 import './styles.css'
@@ -23,7 +23,7 @@ export function YellowBirchLeafPage() {
         </div>
 
         <div className="spacing">
-          <TangoText text="This is a Yellow Birch, they've adapted to live in our salty climats!" audio={yellowbirchtest}/>
+          <TangoText text="This is a Yellow Birch, they've adapted to live in our salty climates!" audio={YellowBirch}/>
         </div>
       </main>
     </div>
