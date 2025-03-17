@@ -1,7 +1,7 @@
 //Rongkun's Page
 
 import sugarMaple from '@/assets/audio/sugarMaple.mp3'
-import sugarMaplePhoto from '@/assets/leafPhotos/Sugar-Maple-Photoroom.png'
+import sugarMaplePhoto from '@/assets/leafPhotos/SugarMaple_Cartoon.png'
 import {PlayAgainButton, TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 
@@ -14,7 +14,7 @@ export function SugarMapleLeafPage() {
       <LeafNameHeader name="Sugar Maple" />
       <main>
         <div className="flex justify-center spacing">
-          <img className="fox-tree-logo" src={sugarMaplePhoto} alt="Sugar-Maple-Photoroom.png picture" />
+          <img className="fox-tree-logo" src={sugarMaplePhoto} alt="SugarMaple_Cartoon.png picture" />
         </div>
 
         <div className="flex justify-center spacing button_spacing">
