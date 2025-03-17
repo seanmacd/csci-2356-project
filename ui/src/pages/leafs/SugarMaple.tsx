@@ -1,6 +1,6 @@
 //Rongkun's Page
 
-import sugarMaple from '@/assets/sugarMaple.mp3'
+import sugarMaple from '@/assets/audio/sugarMaple.mp3'
 import sugarMaplePhoto from '@/assets/leafPhotos/Sugar-Maple-Photoroom.png'
 import {PlayAgainButton, TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
@@ -23,7 +23,7 @@ export function SugarMapleLeafPage() {
 
         <div className="spacing">
           <TangoText
-            text="This is a Yellow Birch, they've adapted to live in our salty climates!"
+            text="This is a sugar maple leaf! Did you know this tree is where maple syrup comes from?"
             audio={sugarMaple}
           />
         </div>
