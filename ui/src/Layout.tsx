@@ -4,7 +4,7 @@ import Icon from '@/assets/otherPhotos/icon.svg'
 
 export function Layout() {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div>
       <div className="min-h-screen bg-orange-100 p-8">
         <Header />
         <Outlet />
