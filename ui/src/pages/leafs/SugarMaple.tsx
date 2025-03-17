@@ -1,20 +1,20 @@
 //Rongkun's Page
 
-import YellowBirch from '@/assets/audio/YellowBirchAudio.mp3'
-import yellow_birch_cartoon from '@/assets/leafPhotos/YellowBirch_Cartoon.png'
+import sugarMaple from '@/assets/sugarMaple.mp3'
+import sugarMaplePhoto from '@/assets/Sugar-Maple-Photoroom.png'
 import {PlayAgainButton, TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 
 import './styles.css'
 
-export function YellowBirchLeafPage() {
+export function SugarMapleLeafPage() {
   return (
     <div className="body_background">
-      <title>Yellow Birch Game</title>
-      <LeafNameHeader name="Yellow Birch" />
+      <title>Sugar Maple Game</title>
+      <LeafNameHeader name="Sugar Maple" />
       <main>
         <div className="flex justify-center spacing">
-          <img className="fox-tree-logo" src={yellow_birch_cartoon} alt="yellow_birch_cartoon.png picture" />
+          <img className="fox-tree-logo" src={sugarMaplePhoto} alt="Sugar-Maple-Photoroom.png picture" />
         </div>
 
         <div className="flex justify-center spacing button_spacing">
@@ -24,7 +24,7 @@ export function YellowBirchLeafPage() {
         <div className="spacing">
           <TangoText
             text="This is a Yellow Birch, they've adapted to live in our salty climates!"
-            audio={YellowBirch}
+            audio={sugarMaple}
           />
         </div>
       </main>
