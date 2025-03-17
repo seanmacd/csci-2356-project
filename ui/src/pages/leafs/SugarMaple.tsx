@@ -5,19 +5,17 @@ import sugarMaplePhoto from '@/assets/leafPhotos/SugarMaple_Cartoon.png'
 import {PlayAgainButton, TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 
-import './styles.css'
-
 export function SugarMapleLeafPage() {
   return (
-    <div className="body_background">
+    <div >
       <title>Sugar Maple Game</title>
       <LeafNameHeader name="Sugar Maple" />
       <main>
-        <div className="flex justify-center spacing">
+        <div className="flex justify-center">
           <img className="fox-tree-logo" src={sugarMaplePhoto} alt="SugarMaple_Cartoon.png picture" />
         </div>
 
-        <div className="flex justify-center spacing button_spacing">
+        <div className="flex justify-center">
           <PlayAgainButton />
         </div>
 
