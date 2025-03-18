@@ -1,3 +1,6 @@
+// Connor's page
+// Implements components for the button, header, tango bubble, and uses imported image and audio. 
+
 import redMapleAudio from '@/assets/audio/Red-Maple.mp3'
 import redMaple from '@/assets/leafPhotos/RedMaple_Cartoon.png'
 import {LeafImage, PlayAgainButton, TangoText} from '@/components'
