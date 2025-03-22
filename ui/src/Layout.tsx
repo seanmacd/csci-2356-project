@@ -1,6 +1,7 @@
 import {Outlet} from 'react-router'
 
 import Icon from '@/assets/otherPhotos/icon.svg'
+import homeIcon from '@/assets/otherPhotos/homeIconWhite.svg'
 
 export function Layout() {
   return (
@@ -19,7 +20,9 @@ function Header() {
     <header className="bg-amber-950 p-4 text-center text-white font-bold text-2xl rounded-xl flex items-center mb-8">
       <img src={Icon} className="w-10" />
       <span className="flex-1">Tango Tree Leaf Game</span>
-      <span className="w-10"></span>
+      <button onClick={() => (window.location.href = '/')}>
+                <img src={homeIcon} className='w-10'/>
+        </button>
     </header>
   )
 }
