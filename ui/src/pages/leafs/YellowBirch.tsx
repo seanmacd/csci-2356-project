@@ -1,32 +1,47 @@
-// wenda's page
-// Has components for the button, header, tango bubble, and uses imported image and audio. 
-
+import { useEffect } from 'react'
+import { drawBugs } from '@/components/DrawBugs'
 import YellowBirch from '@/assets/audio/YellowBirchAudio.mp3'
 import yellow_birch_cartoon from '@/assets/leafPhotos/YellowBirch_Cartoon.png'
 import { PlayAgainButton, TangoText } from '@/components'
 import { LeafNameHeader } from '@/components/LeafNameHeader'
 
+const bugPositions: [number, number][] = [
+  [405, 60],
+  [60, 350],
+  [68, 210],
+  [125, 115],
+  [240, 70],
+  [390, 150],
+  [370, 250],
+  [285, 350],
+]
+
 export function YellowBirchLeafPage() {
+  useEffect(() => {
+    drawBugs(yellow_birch_cartoon, bugPositions, 'yellowBirch')
+  }, [])
+  
+
   return (
-    <div >
+    <>
       <title>Yellow Birch Game</title>
-
       <LeafNameHeader name="Yellow Birch" />
-
       <main>
-        <div className="flex justify-center ">
-          <img className="fox-tree-logo" src={yellow_birch_cartoon} alt="yellow_birch_cartoon.png picture" />
+        <div className="flex justify-center">
+          <canvas id="yellowBirch" width={500} height={500} />
         </div>
-        <div className="flex justify-center  ">
+        <div className="flex justify-center">
           <PlayAgainButton />
         </div>
-        <div >
+      </main>
+      <aside>
+        <div>
           <TangoText
             text="This is a Yellow Birch, they've adapted to live in our salty climates!"
             audio={YellowBirch}
           />
         </div>
-      </main>
-    </div>
+      </aside>
+    </>
   )
 }

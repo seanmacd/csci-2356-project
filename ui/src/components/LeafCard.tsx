@@ -31,7 +31,7 @@ export function LeafCard({name, description, image, href}: LeafCardProps) {
           <h2 className="text-xl font-bold mb-2">{name}</h2>
           <p className="text-sm ">{description}</p>
         </div>
-        <Button onClick={() => navigate(href)}>Play this game</Button>
+        <Button onClick={() => navigate(href)}>Play</Button>
       </div>
     </div>
   )
