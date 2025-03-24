@@ -1,7 +1,5 @@
 import {Outlet} from 'react-router'
-
 import Icon from '@/assets/otherPhotos/icon.svg'
-import homeIcon from '@/assets/otherPhotos/homeIconWhite.svg'
 import {House} from '@phosphor-icons/react'
 
 
