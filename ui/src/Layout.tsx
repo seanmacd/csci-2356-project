@@ -2,6 +2,8 @@ import {Outlet} from 'react-router'
 
 import Icon from '@/assets/otherPhotos/icon.svg'
 import homeIcon from '@/assets/otherPhotos/homeIconWhite.svg'
+import {House} from '@phosphor-icons/react'
+
 
 export function Layout() {
   return (
@@ -21,7 +23,7 @@ function Header() {
       <img src={Icon} className="w-10" />
       <span className="flex-1">Tango Tree Leaf Game</span>
       <button onClick={() => (window.location.href = '/')}>
-                <img src={homeIcon} className='w-10'/>
+                <House size={32} />
         </button>
     </header>
   )
