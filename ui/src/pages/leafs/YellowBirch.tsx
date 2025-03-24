@@ -17,6 +17,7 @@ const bugPositions: [number, number][] = [
 ]
 
 export function YellowBirchLeafPage() {
+  // This uses the image, positions list, and id to create a canvas with the bug images.
   useEffect(() => {
     drawBugs(yellow_birch_cartoon, bugPositions, 'yellowBirch')
   }, [])
