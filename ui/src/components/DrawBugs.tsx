@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import Bug1 from '@/assets/bugPhotos/Bug1.png'
 import Bug2 from '@/assets/bugPhotos/Bug2.png'
 import Bug3 from '@/assets/bugPhotos/Bug3.png'
@@ -11,60 +12,122 @@ import Bug10 from '@/assets/bugPhotos/Bug10.png'
 import Bug11 from '@/assets/bugPhotos/Bug11.png'
 import Bug12 from '@/assets/bugPhotos/Bug12.png'
 
-type BugPosition = [number, number]
-
-// List of all our bugs to randomize 
 const bugImages = [
   Bug1, Bug2, Bug3, Bug4, Bug5, Bug6, Bug7, Bug8, Bug9, Bug10, Bug11, Bug12,
 ]
 
-// Function to get a random bug image
-function getRandomBugImage(): string {
-  const randomIndex = Math.floor(Math.random() * bugImages.length)
-  return bugImages[randomIndex]
+type Bug = {
+  x: number
+  y: number
+  image: HTMLImageElement
+  visible: boolean
 }
 
-// Page
-export function drawBugs(
-  leafImageSrc: string,
-  bugPositions: BugPosition[],
-  canvasId: string,
-) {
-  const canvas = document.getElementById(canvasId) as HTMLCanvasElement
-  const ctx = canvas?.getContext('2d')
+type Props = {
+  canvasId: string
+  leafImageSrc: string
+  bugPositions: [number, number][]
+}
 
-  if (!ctx) {
-    return
-  }
+export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Props) {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const [bugs, setBugs] = useState<Bug[]>([])
+  const [sepia, setSepia] = useState(1)
 
-  const leaf = new Image()
-  leaf.src = leafImageSrc
+  // Initialize all images once
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
 
-  const bugImagesToDraw = bugPositions.map(() => {
-    const bug = new Image()
-    bug.src = getRandomBugImage()
-    return bug
-  })
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
 
-  let loadedCount = 0
-  const totalToLoad = 1 + bugImagesToDraw.length 
+    const leaf = new Image()
+    leaf.src = leafImageSrc
 
-  // Will load all the bugs at once to prevent multiple bugs per location.
-  const tryDraw = () => {
-    loadedCount++
-    if (loadedCount < totalToLoad) return
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-    ctx.drawImage(leaf, 0, 0, canvas.width, canvas.height)
-
-    bugPositions.forEach(([x, y], index) => {
-      const bug = bugImagesToDraw[index]
-      ctx.drawImage(bug, x, y, 70, 70)
+    const bugList: Bug[] = bugPositions.map(([x, y]) => {
+      const bugImage = new Image()
+      bugImage.src = bugImages[Math.floor(Math.random() * bugImages.length)]
+      return { x, y, image: bugImage, visible: true }
     })
+
+    let loadedCount = 0
+    const total = 1 + bugList.length
+
+    const tryDraw = () => {
+      loadedCount++
+      if (loadedCount < total) return
+      drawAll(ctx, leaf, bugList)
+      setBugs(bugList)
+    }
+
+    leaf.onload = tryDraw
+    bugList.forEach((bug) => (bug.image.onload = tryDraw))
+  }, [leafImageSrc, bugPositions])
+
+  // Draw everything
+  const drawAll = (
+    ctx: CanvasRenderingContext2D,
+    leaf: HTMLImageElement,
+    bugList: Bug[],
+  ) => {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+
+    // Set sepia filter
+    ctx.filter = `sepia(${sepia})`
+    ctx.drawImage(leaf, 0, 0, ctx.canvas.width, ctx.canvas.height)
+
+    ctx.filter = 'none'
+    for (const bug of bugList) {
+      if (bug.visible) {
+        ctx.drawImage(bug.image, bug.x, bug.y, 50, 50)
+      }
+    }
   }
 
-  leaf.onload = tryDraw
-  bugImagesToDraw.forEach((img) => {
-    img.onload = tryDraw
-  })
+  // Click detection
+  const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current
+    if (!canvas || bugs.length === 0) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    const rect = canvas.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+
+    const updatedBugs = bugs.map((bug) => {
+      if (
+        bug.visible &&
+        x >= bug.x &&
+        x <= bug.x + 50 &&
+        y >= bug.y &&
+        y <= bug.y + 50
+      ) {
+        return { ...bug, visible: false }
+      }
+      return bug
+    })
+
+    const bugsRemaining = updatedBugs.filter((b) => b.visible).length
+    const newSepia = Math.max(0, bugsRemaining / bugs.length)
+
+    setSepia(newSepia)
+    setBugs(updatedBugs)
+
+    const leaf = new Image()
+    leaf.src = leafImageSrc
+    leaf.onload = () => drawAll(ctx, leaf, updatedBugs)
+  }
+
+  return (
+    <canvas
+      id={canvasId}
+      ref={canvasRef}
+      width={400}
+      height={400}
+      onClick={handleCanvasClick}
+      style={{ cursor: 'pointer' }}
+    />
+  )
 }
