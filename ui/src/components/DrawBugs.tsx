@@ -12,6 +12,9 @@ import Bug10 from '@/assets/bugPhotos/Bug10.png'
 import Bug11 from '@/assets/bugPhotos/Bug11.png'
 import Bug12 from '@/assets/bugPhotos/Bug12.png'
 
+// Building a leaf with sepia 1, generating the bugs and placing it based on given coords. 
+// Every bug you click away will remove the 1/x amount from sepia filter until all bugs are gone. 
+
 const bugImages = [
   Bug1, Bug2, Bug3, Bug4, Bug5, Bug6, Bug7, Bug8, Bug9, Bug10, Bug11, Bug12,
 ]
@@ -30,27 +33,29 @@ type Props = {
 }
 
 export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Props) {
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [bugs, setBugs] = useState<Bug[]>([])
   const [sepia, setSepia] = useState(1)
 
-  // Initialize all images once
+  // Loading all bugs and leaf image. 
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
     const leaf = new Image()
     leaf.src = leafImageSrc
-
+    
+    // Using the input x,y values of where the bugs will go
     const bugList: Bug[] = bugPositions.map(([x, y]) => {
       const bugImage = new Image()
       bugImage.src = bugImages[Math.floor(Math.random() * bugImages.length)]
       return { x, y, image: bugImage, visible: true }
     })
 
+    // Keeping track for later use in sepia filter
     let loadedCount = 0
     const total = 1 + bugList.length
 
@@ -65,27 +70,31 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     bugList.forEach((bug) => (bug.image.onload = tryDraw))
   }, [leafImageSrc, bugPositions])
 
-  // Draw everything
+ 
   const drawAll = (
     ctx: CanvasRenderingContext2D,
     leaf: HTMLImageElement,
     bugList: Bug[],
   ) => {
+    // Clear canvas
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-
-    // Set sepia filter
+  
+    // Draw the leaf with sepia
+    ctx.save()
     ctx.filter = `sepia(${sepia})`
     ctx.drawImage(leaf, 0, 0, ctx.canvas.width, ctx.canvas.height)
-
-    ctx.filter = 'none'
+    ctx.restore()
+  
+    // Draw bugs without filter
     for (const bug of bugList) {
       if (bug.visible) {
         ctx.drawImage(bug.image, bug.x, bug.y, 50, 50)
       }
     }
   }
+  
 
-  // Click detection
+  // When a bug is clicked, will turn invisible and reduce sepia filter by the newSepia amount. 
   const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current
     if (!canvas || bugs.length === 0) return
@@ -98,6 +107,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
 
     const updatedBugs = bugs.map((bug) => {
       if (
+        // As long as cursor is within 50 pixels. 
         bug.visible &&
         x >= bug.x &&
         x <= bug.x + 50 &&
@@ -127,7 +137,8 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
       width={400}
       height={400}
       onClick={handleCanvasClick}
-      style={{ cursor: 'pointer' }}
-    />
+/>
+
   )
+  
 }
