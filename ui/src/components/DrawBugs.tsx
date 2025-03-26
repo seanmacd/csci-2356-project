@@ -36,22 +36,29 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
 
   useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas) return
+    if (!canvas) {
+      return
+    }
     const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    if (!ctx) {
+      return
+    }
 
     const leaf = new Image()
     leaf.src = leafImageSrc
 
+    // Mapping bugs to image using x,y coords. Will pick random bug image from list
     const bugList: Bug[] = bugPositions.map(([x, y]) => {
       const bugImage = new Image()
       bugImage.src = bugImages[Math.floor(Math.random() * bugImages.length)]
       return { x, y, image: bugImage, visible: true }
     })
 
+    // Keep track of how many bugs so we can have right saturation level
     let loadedCount = 0
     const total = 1 + bugList.length
 
+    // Draw bugs and leaf once loaded
     const tryDraw = () => {
       loadedCount++
       if (loadedCount < total) return
@@ -63,16 +70,23 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     bugList.forEach((bug) => (bug.image.onload = tryDraw))
   }, [leafImageSrc, bugPositions])
 
+
+  // Getting the bugs to go away + updating saturation level
   const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current
-    if (!canvas || bugs.length === 0) return
+    if (!canvas || bugs.length === 0) {
+      return
+    }
     const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    if (!ctx) {
+      return
+    }
 
     const rect = canvas.getBoundingClientRect()
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
 
+    // Changing bug visability when clicked with slight offset
     const updatedBugs = bugs.map((bug) => {
       if (
         bug.visible &&
@@ -81,17 +95,22 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
         y >= bug.y &&
         y <= bug.y + 50
       ) {
-        return { ...bug, visible: false }
+        return {
+          ...bug, visible: false
+        }
       }
       return bug
     })
 
+    // Updating the saturation after bug clicked
     const bugsRemaining = updatedBugs.filter(b => b.visible).length
     const newSaturation = 1 - bugsRemaining / bugs.length
 
+    // Setting new saturation and bugs
     setSaturationLevel(newSaturation)
     setBugs(updatedBugs)
 
+    // Redraw the canvas 
     const leaf = new Image()
     leaf.src = leafImageSrc
     leaf.onload = () => drawAll(ctx, leaf, updatedBugs)
@@ -102,6 +121,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     leaf: HTMLImageElement,
     bugList: Bug[]
   ) => {
+    // Drawing leaf
     const { width, height } = ctx.canvas
 
     const offCanvas = document.createElement('canvas')
@@ -115,7 +135,8 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     const imageData = offCtx.getImageData(0, 0, width, height)
     const data = imageData.data
     const saturation = 0.1 + 0.9 * saturationLevel
-
+    
+    // Changing the pixel saturation to account for IOS not supporting filters. smh.
     for (let i = 0; i < data.length; i += 4) {
       const r = data[i]
       const g = data[i + 1]
@@ -130,7 +151,8 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     offCtx.putImageData(imageData, 0, 0)
     ctx.clearRect(0, 0, width, height)
     ctx.drawImage(offCanvas, 0, 0, width, height)
-
+    
+    // Drawing the bug images
     bugList.forEach((bug) => {
       if (bug.visible) {
         ctx.drawImage(bug.image, bug.x, bug.y, 50, 50)
@@ -138,6 +160,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     })
   }
 
+  // red green blue to hue saturation lightness and vice versa so we're able to change saturation levels.
   const rgbToHsl = (r: number, g: number, b: number) => {
     r /= 255
     g /= 255
@@ -191,6 +214,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     }
   }
 
+  // Actually displaying the data. 
   return (
     <canvas
       id={canvasId}
