@@ -29,7 +29,7 @@ export function YellowBirchLeafPage() {
       <LeafNameHeader name="Yellow Birch" />
       <main>
         <div className="flex justify-center">
-          <canvas id="yellowBirch" width={450} height={450} />
+          <canvas id="yellowBirch" width={400} height={400} />
         </div>
         <div className="flex justify-center">
           <PlayAgainButton />
