@@ -1,9 +1,11 @@
+// Wendas page
 import YellowBirch from '@/assets/audio/YellowBirchAudio.mp3'
 import yellow_birch_cartoon from '@/assets/leafPhotos/YellowBirch_Cartoon.png'
 import { PlayAgainButton, TangoText } from '@/components'
 import { LeafNameHeader } from '@/components/LeafNameHeader'
-import DrawBugs from '@/components/DrawBugs' // NEW
+import DrawBugs from '@/components/DrawBugs'
 
+// Bug locations
 const bugPositions: [number, number][] = [
   [320, 50],
   [55, 280],

@@ -6,6 +6,7 @@ import {PlayAgainButton, TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 import DrawBugs from '@/components/DrawBugs'
 
+// Bug locations
 const bugPositions: [number, number][] = [
   [230, 25],
   [290, 100],
