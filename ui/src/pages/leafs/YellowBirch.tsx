@@ -2,7 +2,6 @@
 import YellowBirch from '@/assets/audio/YellowBirchAudio.mp3'
 import yellow_birch_cartoon from '@/assets/leafPhotos/YellowBirch_Cartoon.png'
 import { PlayAgainButton, TangoText } from '@/components'
-import { LeafNameHeader } from '@/components/LeafNameHeader'
 import DrawBugs from '@/components/DrawBugs'
 
 // Bug locations
@@ -21,7 +20,6 @@ export function YellowBirchLeafPage() {
   return (
     <>
       <title>Yellow Birch Game</title>
-      <LeafNameHeader name="Yellow Birch" />
       <main>
         <div className="flex justify-center">
           <DrawBugs

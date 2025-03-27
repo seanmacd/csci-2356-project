@@ -15,6 +15,8 @@ import Squash1 from '@/assets/audio/Bug-Hit-001.mp3';
 import Squash2 from '@/assets/audio/Bug-Hit-002.mp3';
 import Squash3 from '@/assets/audio/Bug-Hit-003.mp3';
 import Squash4 from '@/assets/audio/Bug-Hit-004.mp3';
+import { Timer } from './Timer';
+
 
 
 
@@ -40,6 +42,24 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const [bugs, setBugs] = useState<Bug[]>([])
   const [saturationLevel, setSaturationLevel] = useState(0)
+
+  // Setting the timer to 30 seconds : Connor
+  const [startTimer, setIsTimerActive] = useState(false)
+
+  // finalTime is used to store the time taken to complete the game : Connor
+  const [finalTime, setFinalTime] = useState<number | null>(null)
+
+  // This function is called when the timer updates : Connor
+  // It checks if the bugs are all squashed and sets the final time : Connor
+  const handleTimeUpdate = (secondsLeft: number) => {
+    if (!setIsTimerActive || bugs.length === 0) return
+
+    const bugsRemaining = bugs.filter(b => b.visible).length
+    if (bugsRemaining === 0 && finalTime === null) {
+      const timeTaken = 30 - secondsLeft // assuming 30 is startSeconds
+      setFinalTime(timeTaken)
+    }
+  }
 
 
   // Preload bug sounds in array so we can play them when bugs are squashed : Connor
@@ -116,6 +136,13 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
         y >= bug.y &&
         y <= bug.y + 50
       ) {
+
+        // Setting the timer to active when a bug is clicked : Connor
+        // This way we can start the timer when the first bug is clicked : Connor
+        if (!startTimer) {
+          setIsTimerActive(true)
+        }
+
         // Gets a random sound from the array and plays it : Connor
         // Clone creates a fresh copy of the sound : Connor
         const randomSound = bugSounds.current[Math.floor(Math.random() * bugSounds.current.length)]
@@ -131,6 +158,12 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
 
     // Updating the saturation after bug clicked
     const bugsRemaining = updatedBugs.filter(b => b.visible).length
+
+    // If all bugs are squashed, stop the timer : Connor
+    if (bugsRemaining === 0) {
+      setIsTimerActive(false)
+    }
+
     const newSaturation = 1 - bugsRemaining / bugs.length
 
     // Setting new saturation and bugs
@@ -162,7 +195,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     const imageData = offCtx.getImageData(0, 0, width, height)
     const data = imageData.data
     const saturation = 0.1 + 0.9 * saturationLevel
-    
+
     // Changing the pixel saturation to account for IOS not supporting filters. smh.
     for (let i = 0; i < data.length; i += 4) {
       const r = data[i]
@@ -178,7 +211,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     offCtx.putImageData(imageData, 0, 0)
     ctx.clearRect(0, 0, width, height)
     ctx.drawImage(offCanvas, 0, 0, width, height)
-    
+
     // Drawing the bug images
     bugList.forEach((bug) => {
       if (bug.visible) {
@@ -241,15 +274,23 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     }
   }
 
+
   // Actually displaying the data. 
   return (
-    <canvas
-      id={canvasId}
-      ref={canvasRef}
-      width={400}
-      height={400}
-      onClick={handleCanvasClick}
-      style={{ touchAction: 'manipulation' }}
-    />
+    <>
+      <div className="flex flex-col items-center">
+        <div className="flex items-center justify-center mt-4 space-x-4">
+          <Timer startSeconds={30} isActive={startTimer} onTimeUpdate={handleTimeUpdate} />
+        </div>
+        <canvas
+          id={canvasId}
+          ref={canvasRef}
+          width={400}
+          height={400}
+          onClick={handleCanvasClick}
+          style={{ touchAction: 'manipulation' }}
+        />
+      </div>
+    </>
   )
 }
