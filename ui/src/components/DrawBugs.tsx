@@ -11,6 +11,12 @@ import Bug9 from '@/assets/bugPhotos/Bug9.png'
 import Bug10 from '@/assets/bugPhotos/Bug10.png'
 import Bug11 from '@/assets/bugPhotos/Bug11.png'
 import Bug12 from '@/assets/bugPhotos/Bug12.png'
+import Squash1 from '@/assets/audio/Bug-Hit-001.mp3';
+import Squash2 from '@/assets/audio/Bug-Hit-002.mp3';
+import Squash3 from '@/assets/audio/Bug-Hit-003.mp3';
+import Squash4 from '@/assets/audio/Bug-Hit-004.mp3';
+
+
 
 const bugImages = [
   Bug1, Bug2, Bug3, Bug4, Bug5, Bug6, Bug7, Bug8, Bug9, Bug10, Bug11, Bug12,
@@ -23,6 +29,7 @@ type Bug = {
   visible: boolean
 }
 
+
 type Props = {
   canvasId: string
   leafImageSrc: string
@@ -34,6 +41,11 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
   const [bugs, setBugs] = useState<Bug[]>([])
   const [saturationLevel, setSaturationLevel] = useState(0)
 
+
+  // Preload bug sounds in array so we can play them when bugs are squashed : Connor
+  /// This is a ref to store the audio elements
+  const bugSounds = useRef<HTMLAudioElement[]>([])
+
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) {
@@ -43,6 +55,15 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     if (!ctx) {
       return
     }
+
+    // Stores the audio elements in the bugSounds array : Connor
+    // This way we can play a random sound when a bug is squashed : Connor
+    bugSounds.current = [
+      new Audio(Squash1),
+      new Audio(Squash2),
+      new Audio(Squash3),
+      new Audio(Squash4),
+    ]
 
     const leaf = new Image()
     leaf.src = leafImageSrc
@@ -95,6 +116,12 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
         y >= bug.y &&
         y <= bug.y + 50
       ) {
+        // Gets a random sound from the array and plays it : Connor
+        // Clone creates a fresh copy of the sound : Connor
+        const randomSound = bugSounds.current[Math.floor(Math.random() * bugSounds.current.length)]
+        const clone = randomSound.cloneNode() as HTMLAudioElement
+        clone.play()
+
         return {
           ...bug, visible: false
         }
