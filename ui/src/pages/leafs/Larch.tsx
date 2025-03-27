@@ -16,7 +16,6 @@ const bugPositions: [number, number][] = [
   [10, 65],
   [25, 210],
   [125, 310],
-  [125, 310],
 ]
 
 export function LarchLeafPage() {
