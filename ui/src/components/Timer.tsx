@@ -1,12 +1,17 @@
+// Connor's page
+// Countdown timer component
+// This component is used to create a countdown timer that starts from a given number of seconds and counts down to zero.
+
 import { useEffect, useState } from 'react';
 
 type CountdownTimerProps = {
   startSeconds: number;
   isActive: boolean;
   onComplete?: () => void;
+  onTimeUpdate?: (secondsLeft: number) => void
 };
 
-export function Timer({ startSeconds, isActive, onComplete }: CountdownTimerProps) {
+export function Timer({ startSeconds, isActive, onComplete, onTimeUpdate }: CountdownTimerProps) {
   const [seconds, setSeconds] = useState(startSeconds);
 
   useEffect(() => {
@@ -15,14 +20,21 @@ export function Timer({ startSeconds, isActive, onComplete }: CountdownTimerProp
     if (isActive && seconds > 0) {
       interval = window.setInterval(() => {
         setSeconds(prev => {
-          const next = prev - 1;
-          if (next <= 0) {
-            if (onComplete) onComplete();
-            clearInterval(interval!);
+          const next = prev - 1
+      
+          if (onTimeUpdate) {
+            onTimeUpdate(next)
           }
-          return next;
-        });
-      }, 1000);
+      
+          if (next <= 0) {
+            if (onComplete) onComplete()
+            clearInterval(interval!)
+          }
+      
+          return next
+        })
+      }, 1000)
+      
     }
 
     return () => {
