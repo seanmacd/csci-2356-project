@@ -18,8 +18,6 @@ import Squash4 from '@/assets/audio/Bug-Hit-004.mp3';
 import { Timer } from './Timer';
 
 
-
-
 const bugImages = [
   Bug1, Bug2, Bug3, Bug4, Bug5, Bug6, Bug7, Bug8, Bug9, Bug10, Bug11, Bug12,
 ]
@@ -30,7 +28,6 @@ type Bug = {
   image: HTMLImageElement
   visible: boolean
 }
-
 
 type Props = {
   canvasId: string
@@ -88,7 +85,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     const leaf = new Image()
     leaf.src = leafImageSrc
 
-    // Mapping bugs to image using x,y coords. Will pick random bug image from list
+    // Mapping bugs to image using x,y coords. Will pick random bug image from list : Wenda
     const bugList: Bug[] = bugPositions.map(([x, y]) => {
       const bugImage = new Image()
       bugImage.src = bugImages[Math.floor(Math.random() * bugImages.length)]
@@ -99,7 +96,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     let loadedCount = 0
     const total = 1 + bugList.length
 
-    // Draw bugs and leaf once loaded
+    // Draw bugs and leaf once loaded : Wenda
     const tryDraw = () => {
       loadedCount++
       if (loadedCount < total) return
@@ -112,7 +109,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
   }, [leafImageSrc, bugPositions])
 
 
-  // Getting the bugs to go away + updating saturation level
+  // Getting the bugs to go away + updating saturation level : Wenda
   const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current
     if (!canvas || bugs.length === 0) {
@@ -127,7 +124,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
 
-    // Changing bug visability when clicked with slight offset
+    // Changing bug visability when clicked within the 50x50 region : Wenda
     const updatedBugs = bugs.map((bug) => {
       if (
         bug.visible &&
@@ -156,7 +153,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
       return bug
     })
 
-    // Updating the saturation after bug clicked
+    // Updating the saturation after bug clicked : Wenda
     const bugsRemaining = updatedBugs.filter(b => b.visible).length
 
     // If all bugs are squashed, stop the timer : Connor
@@ -196,7 +193,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     const data = imageData.data
     const saturation = 0.1 + 0.9 * saturationLevel
 
-    // Changing the pixel saturation to account for IOS not supporting filters. smh.
+    // Changing the pixel colors to account for IOS not supporting filters : Wenda
     for (let i = 0; i < data.length; i += 4) {
       const r = data[i]
       const g = data[i + 1]
@@ -212,7 +209,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     ctx.clearRect(0, 0, width, height)
     ctx.drawImage(offCanvas, 0, 0, width, height)
 
-    // Drawing the bug images
+    // Drawing the visible bug images
     bugList.forEach((bug) => {
       if (bug.visible) {
         ctx.drawImage(bug.image, bug.x, bug.y, 50, 50)
@@ -220,7 +217,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     })
   }
 
-  // red green blue to hue saturation lightness and vice versa so we're able to change saturation levels.
+  // RGB TO HSL, taken from ChatGPT 
   const rgbToHsl = (r: number, g: number, b: number) => {
     r /= 255
     g /= 255
@@ -244,6 +241,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     return { h, s, l }
   }
 
+  // HSL to RGB, taken from ChatGPT. 
   const hslToRgb = (h: number, s: number, l: number) => {
     let r: number, g: number, b: number
 
@@ -275,7 +273,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
   }
 
 
-  // Actually displaying the data. 
+  // Actually displaying the data : Wenda
   return (
     <>
       <div className="flex flex-col items-center">
