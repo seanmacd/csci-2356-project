@@ -1,24 +1,42 @@
 // sean's page
 
 import Redoak from '@/assets/audio/redoak.mp3'
-import redOakPhotoroom from '@/assets/leafPhotos/RedOak_Cartoon.png'
-import {LeafImage, PlayAgainButton, TangoText} from '@/components'
-import {LeafNameHeader} from '@/components/LeafNameHeader'
+import RedOak_cartoon from '@/assets/leafPhotos/RedOak_Cartoon.png'
+import {TangoText} from '@/components'
+import DrawBugs from '@/components/DrawBugs'
+
+const bugPositions: [number, number][] = [
+  [25, 330],
+  [130, 315],
+  [250, 300],
+  [330, 190],
+  [300, 15],
+  [125, 30],
+  [45, 170],
+  [35, 250],
+]
 
 export function RedOakLeafPage() {
   return (
     <>
-      <title>Red Oak</title>
-      <div className="max-w-3xl mx-auto">
-        <LeafNameHeader name="Red Oak" />
+      <title>Yellow Birch Game</title>
+      <main>
         <div className="flex justify-center">
-          <LeafImage src={redOakPhotoroom} alt="Image of red oak leaf" />
+          <DrawBugs
+            canvasId="yellowBirch"
+            leafImageSrc={RedOak_cartoon}
+            bugPositions={bugPositions}
+          />
         </div>
-        <div className="flex justify-center">
-          <PlayAgainButton />
+      </main>
+      <aside>
+        <div>
+          <TangoText
+            text="This is a red oak tree leaf, in the fall they turn red!"
+            audio={Redoak}
+          />
         </div>
-        <TangoText text="This is a red oak tree leaf, in the fall they turn red." audio={Redoak} />
-      </div>
+      </aside>
     </>
   )
 }

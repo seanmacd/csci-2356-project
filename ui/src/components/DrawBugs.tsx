@@ -16,7 +16,7 @@ import Squash2 from '@/assets/audio/Bug-Hit-002.mp3';
 import Squash3 from '@/assets/audio/Bug-Hit-003.mp3';
 import Squash4 from '@/assets/audio/Bug-Hit-004.mp3';
 import { Timer } from './Timer';
-
+import { GameModal } from './GameModal';
 
 const bugImages = [
   Bug1, Bug2, Bug3, Bug4, Bug5, Bug6, Bug7, Bug8, Bug9, Bug10, Bug11, Bug12,
@@ -46,6 +46,12 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
   // finalTime is used to store the time taken to complete the game : Connor
   const [finalTime, setFinalTime] = useState<number | null>(null)
 
+  // State to control GameModal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  // State to store the score
+  const [score, setScore] = useState(0)
+
   // This function is called when the timer updates : Connor
   // It checks if the bugs are all squashed and sets the final time : Connor
   const handleTimeUpdate = (secondsLeft: number) => {
@@ -57,7 +63,6 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
       setFinalTime(timeTaken)
     }
   }
-
 
   // Preload bug sounds in array so we can play them when bugs are squashed : Connor
   /// This is a ref to store the audio elements
@@ -108,8 +113,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     bugList.forEach((bug) => (bug.image.onload = tryDraw))
   }, [leafImageSrc, bugPositions])
 
-
-  // Getting the bugs to go away + updating saturation level : Wenda
+  // Getting the bugs to go away + updating saturation level
   const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current
     if (!canvas || bugs.length === 0) {
@@ -156,9 +160,11 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     // Updating the saturation after bug clicked : Wenda
     const bugsRemaining = updatedBugs.filter(b => b.visible).length
 
-    // If all bugs are squashed, stop the timer : Connor
+    // If all bugs are squashed, stop the timer and open the modal
     if (bugsRemaining === 0) {
       setIsTimerActive(false)
+      setScore(30 - finalTime!) // Calculate the score based on remaining time
+      setIsModalOpen(true) // Open the modal
     }
 
     const newSaturation = 1 - bugsRemaining / bugs.length
@@ -272,8 +278,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     }
   }
 
-
-  // Actually displaying the data : Wenda
+  // Actually displaying the data. 
   return (
     <>
       <div className="flex flex-col items-center">
@@ -289,6 +294,12 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
           style={{ touchAction: 'manipulation' }}
         />
       </div>
+      {isModalOpen && (
+        <GameModal
+          score={score.toString()}
+          Highscore={"27"} // Replace with actual high score logic if needed
+        />
+      )}
     </>
   )
 }
