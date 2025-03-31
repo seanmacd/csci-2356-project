@@ -2,7 +2,7 @@
 // Modified by: Wenda, adjusted for new DrawBugs component. 
 import larchAudio from '@/assets/audio/larch.mp3'
 import larchPhoto from '@/assets/leafPhotos/Larch_Cartoon.png'
-import {PlayAgainButton, TangoText} from '@/components'
+import {TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 import DrawBugs from '@/components/DrawBugs'
 
