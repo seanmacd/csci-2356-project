@@ -4,6 +4,23 @@ import sugarMapleAudio from '@/assets/audio/sugarMaple.mp3'
 import sugarMaplePhoto from '@/assets/leafPhotos/SugarMaple_Cartoon.png'
 import {PlayAgainButton, TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
+import DrawBugs from '@/components/DrawBugs'
+
+const bugPositions: [number, number][] = [
+  [181, 20],
+  [230, 80],
+  [330, 95],
+  [320, 250],
+  [130, 80],
+  [30, 95],
+  [40, 250],
+  [105, 300],
+  [265, 300],
+  [45, 190],
+  [320, 190],
+  
+
+]
 
 export function SugarMapleLeafPage() {
   return (
