@@ -29,9 +29,9 @@ export function SugarMapleLeafPage() {
       <LeafNameHeader name="Sugar Maple" />
       <main>
         <div className="flex justify-center">
-          <img className="fox-tree-logo" src={sugarMaplePhoto} alt="SugarMaple_Cartoon.png picture" />
+          <DrawBugs canvasId="sugarMaple" leafImageSrc={sugarMaplePhoto} bugPositions={bugPositions}/>        
         </div>
-
+        
         <div className="flex justify-center">
           <PlayAgainButton />
         </div>
