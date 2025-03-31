@@ -18,6 +18,13 @@ import Squash4 from '@/assets/audio/Bug-Hit-004.mp3';
 import { Timer } from './Timer';
 import { GameModal } from './GameModal';
 
+/**
+ * DrawBugs Component: 
+ * Draws randomized bugs on leaf canvas. Allows users to click on bug to get rid of them and increase saturation
+ * on leaf until all bugs are completed. Also implements GameModal and Timer componenets giving the user a score based on how
+ * fast they got rid of the bugs.
+ */
+
 const bugImages = [
   Bug1, Bug2, Bug3, Bug4, Bug5, Bug6, Bug7, Bug8, Bug9, Bug10, Bug11, Bug12,
 ]
@@ -40,29 +47,23 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
   const [bugs, setBugs] = useState<Bug[]>([])
   const [saturationLevel, setSaturationLevel] = useState(0)
 
-  // Setting the timer to 30 seconds : Connor
   const [startTimer, setIsTimerActive] = useState(false)
 
-  // State to control GameModal visibility
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  // State to store the score
   const [score, setScore] = useState(30)
 
-  // This function is called when the timer updates : Connor
-  // It checks if the bugs are all squashed and sets the final time : Connor
+  // Call function every time we update the time.
   const handleTimeUpdate = (secondsLeft: number) => {
     setScore(secondsLeft)
-
+    
     // Automatically stopping the game once the timer hits 0
     if(secondsLeft <= 0) {
       setIsTimerActive(false)
-      setIsModalOpen(true) // Open the modal
+      setIsModalOpen(true) 
     }
   }
 
-  // Preload bug sounds in array so we can play them when bugs are squashed : Connor
-  /// This is a ref to store the audio elements
   const bugSounds = useRef<HTMLAudioElement[]>([])
 
   useEffect(() => {
@@ -75,8 +76,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
       return
     }
 
-    // Stores the audio elements in the bugSounds array : Connor
-    // This way we can play a random sound when a bug is squashed : Connor
+    // array of random bug sounds: Connor
     bugSounds.current = [
       new Audio(Squash1),
       new Audio(Squash2),
@@ -87,18 +87,16 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     const leaf = new Image()
     leaf.src = leafImageSrc
 
-    // Mapping bugs to image using x,y coords. Will pick random bug image from list : Wenda
+    // Mapping bugs to image using x,y coords. Will pick random bug image from list
     const bugList: Bug[] = bugPositions.map(([x, y]) => {
       const bugImage = new Image()
       bugImage.src = bugImages[Math.floor(Math.random() * bugImages.length)]
       return { x, y, image: bugImage, visible: true }
     })
 
-    // Keep track of how many bugs so we can have right saturation level
     let loadedCount = 0
     const total = 1 + bugList.length
 
-    // Draw bugs and leaf once loaded : Wenda
     const tryDraw = () => {
       loadedCount++
       if (loadedCount < total) return
@@ -110,7 +108,6 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     bugList.forEach((bug) => (bug.image.onload = tryDraw))
   }, [leafImageSrc, bugPositions])
 
-  // Getting the bugs to go away + updating saturation level
   const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current
     if (!canvas || bugs.length === 0) {
@@ -125,7 +122,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
 
-    // Changing bug visability when clicked within the 50x50 region : Wenda
+    // Changing bug visability when clicked within the 50x50 region
     const updatedBugs = bugs.map((bug) => {
       if (
         bug.visible &&
@@ -136,13 +133,11 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
       ) {
 
         // Setting the timer to active when a bug is clicked : Connor
-        // This way we can start the timer when the first bug is clicked : Connor
         if (!startTimer) {
           setIsTimerActive(true)
         }
 
-        // Gets a random sound from the array and plays it : Connor
-        // Clone creates a fresh copy of the sound : Connor
+        // Plays random bug sound from array: Connor
         const randomSound = bugSounds.current[Math.floor(Math.random() * bugSounds.current.length)]
         const clone = randomSound.cloneNode() as HTMLAudioElement
         clone.play()
@@ -154,22 +149,22 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
       return bug
     })
 
-    // Updating the saturation after bug clicked : Wenda
+    // Updating remaining bugs (only visible ones)
     const bugsRemaining = updatedBugs.filter(b => b.visible).length
 
     // If all bugs are squashed, stop the timer and open the modal
     if (bugsRemaining == 0) {
       setIsTimerActive(false)
-      setIsModalOpen(true) // Open the modal
+      setIsModalOpen(true)
     }
 
     const newSaturation = 1 - bugsRemaining / bugs.length
 
-    // Setting new saturation and bugs
+    // Setting new saturation
     setSaturationLevel(newSaturation)
     setBugs(updatedBugs)
 
-    // Redraw the canvas 
+    // Redraw 
     const leaf = new Image()
     leaf.src = leafImageSrc
     leaf.onload = () => drawAll(ctx, leaf, updatedBugs)
@@ -180,7 +175,6 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     leaf: HTMLImageElement,
     bugList: Bug[]
   ) => {
-    // Drawing leaf
     const { width, height } = ctx.canvas
 
     const offCanvas = document.createElement('canvas')
@@ -195,7 +189,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     const data = imageData.data
     const saturation = 0.1 + 0.9 * saturationLevel
 
-    // Changing the pixel colors to account for IOS not supporting filters : Wenda
+    // Changing the pixel colors to account for IOS not supporting filters
     for (let i = 0; i < data.length; i += 4) {
       const r = data[i]
       const g = data[i + 1]
@@ -219,7 +213,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     })
   }
 
-  // RGB TO HSL, taken from ChatGPT 
+  // RGB TO HSL, taken from ChatGPT. Permission from Terry. 
   const rgbToHsl = (r: number, g: number, b: number) => {
     r /= 255
     g /= 255
@@ -274,7 +268,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     }
   }
 
-  // Actually displaying the data. 
+  // Finally displaying the data
   return (
     <>
       <div className="flex flex-col items-center">
@@ -293,7 +287,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
       {isModalOpen && (
         <GameModal
           score={score.toString()}
-          Highscore={"Coming Soon!"} // Replace with actual high score logic if needed
+          Highscore={"Coming Soon!"} // Replace with actual high score logic later
         />
       )}
     </>

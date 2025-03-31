@@ -1,9 +1,11 @@
-// sean's page
-
 import Redoak from '@/assets/audio/redoak.mp3'
 import RedOak_cartoon from '@/assets/leafPhotos/RedOak_Cartoon.png'
 import {TangoText} from '@/components'
 import DrawBugs from '@/components/DrawBugs'
+
+/**
+ * Sean's page
+ */
 
 const bugPositions: [number, number][] = [
   [25, 330],
@@ -19,16 +21,17 @@ const bugPositions: [number, number][] = [
 export function RedOakLeafPage() {
   return (
     <>
-      <title>Yellow Birch Game</title>
+      <title>Red Oak Game</title>
       <main>
         <div className="flex justify-center">
           <DrawBugs
-            canvasId="yellowBirch"
+            canvasId="redOak"
             leafImageSrc={RedOak_cartoon}
             bugPositions={bugPositions}
           />
         </div>
       </main>
+      
       <aside>
         <div>
           <TangoText

@@ -1,11 +1,15 @@
 import {useNavigate} from 'react-router'
-
 import Larch from '@/assets/leafPhotos/Larch_Real.png'
 import RedMapleLeaf from '@/assets/leafPhotos/RedMaple_Real.png'
 import RedOak from '@/assets/leafPhotos/RedOak_Real.png'
 import SugarMaple from '@/assets/leafPhotos/SugarMaple_Real.png'
 import YellowBirch from '@/assets/leafPhotos/YellowBirch_Real.png'
 import {Button} from '@/components/Button'
+
+/**
+ * LeadCard:
+ * Displays the name, leaf image, description/fact, and button to redirect to its respective page. 
+ */
 
 const images = {RedMapleLeaf, RedOak, SugarMaple, Larch, YellowBirch}
 

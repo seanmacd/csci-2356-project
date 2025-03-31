@@ -1,10 +1,12 @@
-// Connor's page
-// Implements components for the button, header, tango bubble, and uses imported image and audio. 
-
 import redMapleAudio from '@/assets/audio/Red-Maple.mp3';
 import redMaple from '@/assets/leafPhotos/RedMaple_Cartoon.png';
 import { TangoText } from '@/components';
 import DrawBugs from '@/components/DrawBugs';
+
+/**
+ * Connor's page
+ * Implements components for the button, header, tango bubble, and uses imported image and audio. 
+ */
 
 const bugPositions: [number, number][] = [
   [181, 20],
@@ -26,7 +28,7 @@ const bugPositions: [number, number][] = [
 export function RedMapleLeafPage() {
   return (
     <>
-      <title>Red Maple</title>
+      <title>Red Maple Game</title>
       <div className="flex justify-center">
         <DrawBugs
           canvasId="redMaple"

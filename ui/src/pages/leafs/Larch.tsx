@@ -1,10 +1,13 @@
-// Rongkun Page2 
-// Modified by: Wenda, adjusted for new DrawBugs component. 
 import larchAudio from '@/assets/audio/larch.mp3'
 import larchPhoto from '@/assets/leafPhotos/Larch_Cartoon.png'
 import {TangoText} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 import DrawBugs from '@/components/DrawBugs'
+
+/**
+ * Rongkun's Leaf Page 2
+ * Modified by Wenda to use the DrawBugs componenet and TangoText for the fact fact. 
+ */
 
 // Bug locations
 const bugPositions: [number, number][] = [
@@ -21,7 +24,7 @@ const bugPositions: [number, number][] = [
 export function LarchLeafPage() {
     return (
       <>
-        <title>Larch</title>
+        <title>Larch Leaf Game</title>
         <LeafNameHeader name="Larch" />
         <main>
           <div className="flex justify-center">
@@ -31,11 +34,8 @@ export function LarchLeafPage() {
               bugPositions={bugPositions}
             />
           </div>
-          { // No longer need this, DrawBugs has the play again icon after they complete the game. 
-          /* <div className="flex justify-center">
-            <PlayAgainButton />
-          </div> */}
         </main>
+
         <aside>
           <div>
             <TangoText

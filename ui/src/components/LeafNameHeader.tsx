@@ -1,7 +1,8 @@
-
-{
-  /* Create header component Connor*/
-}
+/**
+ * Create header component Connor
+ * 
+ * No longer used, was used in Phase 1. 
+ */
 
 type HeaderProps = {
   name: string

@@ -1,7 +1,11 @@
 import {Popover, PopoverButton, PopoverPanel} from '@headlessui/react'
-
 import TangoTalk from '@/assets/tangoPhotos/tango-talking.png'
 import {PlayAudio} from './PlayAudio'
+
+/**
+ * TangoText Sean:
+ * Image of tango with a chat bubble of text. Also has audio to play what text says as long as implemented.
+ */
 
 export function TangoText({text, audio}: {text: string; audio: string}) {
   return (

@@ -4,9 +4,8 @@ import type {LeafCardProps} from '@/components/LeafCard'
 import {LeafCard} from '@/components/LeafCard'
 
 /*
- *  TODO: Add Header component, create and add LeafSelector comonent,
- *  add TangoText comonent to tell to user how to select a leaf,
- *  add footer comonent
+ *  Home page:
+ *  Uses LeafCardProp to create its own individual element for each leaf along with the Welcome section. 
  */
 
 export function HomePage() {
