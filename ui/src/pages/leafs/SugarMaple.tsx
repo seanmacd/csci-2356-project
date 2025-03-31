@@ -17,7 +17,7 @@ const bugPositions: [number, number][] = [
   [105, 300],
   [265, 300],
   [45, 190],
-  [320, 190],
+//  [320, 190],
   
 
 ]
@@ -31,7 +31,7 @@ export function SugarMapleLeafPage() {
         <div className="flex justify-center">
           <DrawBugs canvasId="sugarMaple" leafImageSrc={sugarMaplePhoto} bugPositions={bugPositions}/>        
         </div>
-        
+
         <div className="flex justify-center">
           <PlayAgainButton />
         </div>
