@@ -1,5 +1,9 @@
 import Tango from '@/assets/tangoPhotos/TangoExcitedRight.png'
 
+/**
+ * Welcome Chatbox by Sean
+ */
+
 export function WelcomeSection() {
   return (
     <div className='p-6'>

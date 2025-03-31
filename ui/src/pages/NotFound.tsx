@@ -1,5 +1,7 @@
 import error from '@/assets/tangoPhotos/404-Tango.png'
-
+/**
+ * Proper 404 page in case they add random stuff to site link. 
+ */
 export function NotFound() {
   return (
     <>

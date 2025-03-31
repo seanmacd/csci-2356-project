@@ -1,6 +1,5 @@
 export * from './Button'
 export * from './LeafCard'
-export * from './LeafImage'
 export * from './LeafNameHeader'
 export * from './PlayAgainButton'
 export * from './PlayAudio'

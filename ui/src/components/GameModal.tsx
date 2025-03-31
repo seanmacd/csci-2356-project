@@ -4,6 +4,11 @@ import { useState } from 'react'
 import AcornColoured from '@/assets/otherPhotos/acornColoured.png'
 import AcornUncoloured from '@/assets/otherPhotos/acornUncoloured.png'
 
+/**
+ * Game Modal: 
+ * Menu popup after user clicks all the bugs with a score and option to play again or return home 
+ */
+
 type GameModalProps = {
   score: string
   Highscore: string
