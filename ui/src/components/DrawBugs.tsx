@@ -43,24 +43,21 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
   // Setting the timer to 30 seconds : Connor
   const [startTimer, setIsTimerActive] = useState(false)
 
-  // finalTime is used to store the time taken to complete the game : Connor
-  const [finalTime, setFinalTime] = useState<number | null>(null)
-
   // State to control GameModal visibility
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   // State to store the score
-  const [score, setScore] = useState(0)
+  const [score, setScore] = useState(30)
 
   // This function is called when the timer updates : Connor
   // It checks if the bugs are all squashed and sets the final time : Connor
   const handleTimeUpdate = (secondsLeft: number) => {
-    if (!setIsTimerActive || bugs.length === 0) return
+    setScore(secondsLeft)
 
-    const bugsRemaining = bugs.filter(b => b.visible).length
-    if (bugsRemaining === 0 && finalTime === null) {
-      const timeTaken = 30 - secondsLeft // assuming 30 is startSeconds
-      setFinalTime(timeTaken)
+    // Automatically stopping the game once the timer hits 0
+    if(secondsLeft <= 0) {
+      setIsTimerActive(false)
+      setIsModalOpen(true) // Open the modal
     }
   }
 
@@ -161,9 +158,8 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     const bugsRemaining = updatedBugs.filter(b => b.visible).length
 
     // If all bugs are squashed, stop the timer and open the modal
-    if (bugsRemaining === 0) {
+    if (bugsRemaining == 0) {
       setIsTimerActive(false)
-      setScore(30 - finalTime!) // Calculate the score based on remaining time
       setIsModalOpen(true) // Open the modal
     }
 
@@ -297,7 +293,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
       {isModalOpen && (
         <GameModal
           score={score.toString()}
-          Highscore={"27"} // Replace with actual high score logic if needed
+          Highscore={"Coming Soon!"} // Replace with actual high score logic if needed
         />
       )}
     </>

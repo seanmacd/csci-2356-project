@@ -31,9 +31,10 @@ export function LarchLeafPage() {
               bugPositions={bugPositions}
             />
           </div>
-          <div className="flex justify-center">
+          { // No longer need this, DrawBugs has the play again icon after they complete the game. 
+          /* <div className="flex justify-center">
             <PlayAgainButton />
-          </div>
+          </div> */}
         </main>
         <aside>
           <div>
