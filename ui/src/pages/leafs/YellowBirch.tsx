@@ -1,7 +1,7 @@
 // Wendas page
 import YellowBirch from '@/assets/audio/YellowBirchAudio.mp3'
 import yellow_birch_cartoon from '@/assets/leafPhotos/YellowBirch_Cartoon.png'
-import { PlayAgainButton, TangoText } from '@/components'
+import {TangoText} from '@/components'
 import DrawBugs from '@/components/DrawBugs'
 
 // Bug locations
@@ -28,9 +28,13 @@ export function YellowBirchLeafPage() {
             bugPositions={bugPositions}
           />
         </div>
-        <div className="flex justify-center">
+        
+        { // No longer need play again button, we have the popup menu that appears after and home button in header. 
+        
+        /* <div className="flex justify-center">
           <PlayAgainButton />
-        </div>
+        </div> */}
+        
       </main>
       <aside>
         <div>
