@@ -11,17 +11,16 @@
     "format": "prettier --write \"./src/**/*.{js,ts,jsx,tsx,mjs,cjs,json}\""
   },
   "dependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
+    "@headlessui/react": "^2.2.0",
     "@phosphor-icons/react": "^2.1.7",
     "@tailwindcss/postcss": "^4.0.17",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.4.0",
-    "react-text-to-speech": "^1.4.2",
-    "react-tiny-popover": "^8.1.6"
+    "react-router": "^7.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react-swc": "^3.8.1",
