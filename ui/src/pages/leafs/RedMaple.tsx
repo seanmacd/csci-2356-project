@@ -3,7 +3,7 @@
 
 import redMapleAudio from '@/assets/audio/Red-Maple.mp3';
 import redMaple from '@/assets/leafPhotos/RedMaple_Cartoon.png';
-import { PlayAgainButton, TangoText } from '@/components';
+import { TangoText } from '@/components';
 import DrawBugs from '@/components/DrawBugs';
 
 const bugPositions: [number, number][] = [
@@ -16,6 +16,10 @@ const bugPositions: [number, number][] = [
   [40, 250],
   [105, 300],
   [265, 300],
+  [45, 190],
+  [320, 190],
+  
+
 ]
 
 
@@ -29,9 +33,6 @@ export function RedMapleLeafPage() {
           leafImageSrc={redMaple}
           bugPositions={bugPositions}
         />
-      </div>
-      <div className="flex justify-center">
-        <PlayAgainButton />
       </div>
       <TangoText text="This is a red maple tree leaf, its on the Canadian flag!" audio={redMapleAudio} />
 
