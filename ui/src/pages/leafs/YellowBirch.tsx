@@ -1,7 +1,9 @@
-import YellowBirch from '@/assets/audio/YellowBirchAudio.mp3'
+import HowToPlayAudio from '@/assets/audio/HowToPlay.mp3'
 import yellow_birch_cartoon from '@/assets/leafPhotos/YellowBirch_Cartoon.png'
-import {TangoText} from '@/components'
+import {TextBox} from '@/components'
 import DrawBugs from '@/components/DrawBugs'
+import Tango from '@/assets/tangoPhotos/tango-talking.png'
+
 
 /**
  * Wenda's leaf page using the DrawBugs componenet and TangoText for fact. 
@@ -34,10 +36,13 @@ export function YellowBirchLeafPage() {
       
       <aside>
         <div>
-          <TangoText
-            text="This is a Yellow Birch, they've adapted to live in our salty climates!"
-            audio={YellowBirch}
-          />
+          <TextBox
+          image={Tango} 
+          imageAltText='Tango the fox' 
+          headerText='How To Play?' 
+          subText='Click the bug to begin the game. Clear all the bugs within 30 seconds and I will reward you with some acorns!'
+          audioSrc={HowToPlayAudio}
+          ></TextBox>
         </div>
       </aside>
   </div>

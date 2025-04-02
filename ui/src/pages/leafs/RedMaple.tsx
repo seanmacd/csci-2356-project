@@ -1,7 +1,10 @@
-import redMapleAudio from '@/assets/audio/Red-Maple.mp3';
+import HowToPlayAudio from '@/assets/audio/HowToPlay.mp3'
 import redMaple from '@/assets/leafPhotos/RedMaple_Cartoon.png';
-import { TangoText } from '@/components';
 import DrawBugs from '@/components/DrawBugs';
+import Tango from '@/assets/tangoPhotos/tango-talking.png'
+import {TextBox} from '@/components'
+
+
 
 /**
  * Connor's page
@@ -36,7 +39,13 @@ export function RedMapleLeafPage() {
           bugPositions={bugPositions}
         />
       </div>
-      <TangoText text="This is a red maple tree leaf, its on the Canadian flag!" audio={redMapleAudio} />
+      <TextBox
+      image={Tango} 
+      imageAltText='Tango the fox' 
+      headerText='How To Play?' 
+      subText='Click the bug to begin the game. Clear all the bugs within 30 seconds and I will reward you with some acorns!'
+      audioSrc={HowToPlayAudio}
+      ></TextBox>
 
     </>
   );

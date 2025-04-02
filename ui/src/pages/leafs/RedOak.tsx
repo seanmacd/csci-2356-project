@@ -1,11 +1,9 @@
 import Redoak from '@/assets/audio/redoak.mp3'
 import RedOak_cartoon from '@/assets/leafPhotos/RedOak_Cartoon.png'
-import {TangoText} from '@/components'
+import Tango from '@/assets/tangoPhotos/tango-talking.png'
+import {TextBox} from '@/components'
 import DrawBugs from '@/components/DrawBugs'
 
-/**
- * Sean's page
- */
 
 const bugPositions: [number, number][] = [
   [25, 330],
@@ -34,10 +32,13 @@ export function RedOakLeafPage() {
       
       <aside>
         <div>
-          <TangoText
-            text="This is a red oak tree leaf, in the fall they turn red!"
-            audio={Redoak}
-          />
+          <TextBox
+          image={Tango} 
+          imageAltText='Tango the fox' 
+          headerText='How To Play?' 
+          subText='Click the bug to begin the game. Clear all the bugs within 30 seconds and I will reward you with some acorns!'
+          audioSrc={Redoak}
+          ></TextBox>
         </div>
       </aside>
     </>

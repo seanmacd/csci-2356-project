@@ -2,7 +2,7 @@ import { TextBox} from '@/components'
 import type {LeafCardProps} from '@/components/LeafCard'
 
 import Tango from '@/assets/tangoPhotos/TangoExcitedRight.png'
-import Redoak from '@/assets/audio/redoak.mp3'
+import Welcome from '@/assets/audio/Welcome.mp3'
 
 import {LeafCard} from '@/components/LeafCard'
 
@@ -61,7 +61,7 @@ export function HomePage() {
       imageAltText='Tango the fox' 
       headerText='Welcome!' 
       subText='Hello! I am tango the trail fox, this is my tree leaf game. Explore and select one of the leaves to begin playing!'
-      audioSrc={Redoak}
+      audioSrc={Welcome}
       ></TextBox>
   <div className="flex flex-col gap-8">{leafCards}</div>
   </div>
