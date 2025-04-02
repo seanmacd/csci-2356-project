@@ -213,7 +213,8 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     })
   }
 
-  // RGB TO HSL, taken from ChatGPT. Permission from Terry. 
+  // RGB TO HSL, taken from Github and modified with ChatGPT. Permission from Terry. 
+  // https://gist.github.com/vahidk/05184faf3d92a0aa1b46aeaa93b07786
   const rgbToHsl = (r: number, g: number, b: number) => {
     r /= 255
     g /= 255
@@ -237,7 +238,8 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     return { h, s, l }
   }
 
-  // HSL to RGB, taken from ChatGPT. 
+  // RGB TO HSL, taken from Github and modified with ChatGPT. Permission from Terry. 
+  // https://gist.github.com/vahidk/05184faf3d92a0aa1b46aeaa93b07786
   const hslToRgb = (h: number, s: number, l: number) => {
     let r: number, g: number, b: number
 
