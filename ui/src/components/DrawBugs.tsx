@@ -15,6 +15,8 @@ import Squash1 from '@/assets/audio/Bug-Hit-001.mp3';
 import Squash2 from '@/assets/audio/Bug-Hit-002.mp3';
 import Squash3 from '@/assets/audio/Bug-Hit-003.mp3';
 import Squash4 from '@/assets/audio/Bug-Hit-004.mp3';
+import Complete from '@/assets/audio/Complete.mp3';
+import Failed from '@/assets/audio/Failed.mp3';
 import { Timer } from './Timer';
 import { GameModal } from './GameModal';
 
@@ -156,6 +158,11 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     if (bugsRemaining == 0) {
       setIsTimerActive(false)
       setIsModalOpen(true)
+      if (score === 0) {
+        new Audio(Failed).play();
+      } else {
+        new Audio(Complete).play();
+      }
     }
 
     const newSaturation = 1 - bugsRemaining / bugs.length
