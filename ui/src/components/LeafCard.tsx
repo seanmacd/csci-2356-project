@@ -5,6 +5,8 @@ import RedOak from '@/assets/leafPhotos/RedOak_Real.png'
 import SugarMaple from '@/assets/leafPhotos/SugarMaple_Real.png'
 import YellowBirch from '@/assets/leafPhotos/YellowBirch_Real.png'
 import {Button} from '@/components/Button'
+import {Difficulty} from '@/components/Difficulty'
+
 
 /**
  * LeadCard:
@@ -20,9 +22,10 @@ export type LeafCardProps = {
   description: string
   image: LeafCardImage
   href: string
+  difficulty: number
 }
 
-export function LeafCard({name, description, image, href}: LeafCardProps) {
+export function LeafCard({name, description, image, href, difficulty}: LeafCardProps) {
   const navigate = useNavigate()
 
   return (
@@ -32,7 +35,14 @@ export function LeafCard({name, description, image, href}: LeafCardProps) {
       </div>
       <div className="flex flex-col gap-4 justify-between bg-amber-950 text-white p-4 flex-1">
         <div>
-          <h2 className="text-xl font-bold mb-2">{name}</h2>
+          <h2 className="text-xl font-bold">
+            <div className="flex justify-between">
+              <div className="text-left">{name}</div>
+              <div className="text-right">
+                <Difficulty difficulty={difficulty}></Difficulty>
+              </div>
+            </div>
+          </h2>
           <p className="text-sm ">{description}</p>
         </div>
         <Button onClick={() => navigate(href)}>Play</Button>
