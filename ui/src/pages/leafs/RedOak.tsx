@@ -4,6 +4,11 @@ import Tango from '@/assets/tangoPhotos/tango-talking.png'
 import {TextBox} from '@/components'
 import DrawBugs from '@/components/DrawBugs'
 
+/**
+ * Red Oak Leaf Page
+ * 
+ * @authors Sean
+ */
 
 const bugPositions: [number, number][] = [
   [25, 330],

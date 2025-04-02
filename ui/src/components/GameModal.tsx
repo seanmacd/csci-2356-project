@@ -7,6 +7,8 @@ import AcornUncoloured from '@/assets/otherPhotos/acornUncoloured.png'
 /**
  * Game Modal: 
  * Menu popup after user clicks all the bugs with a score and option to play again or return home 
+ * 
+ * @authors Sean
  */
 
 type GameModalProps = {

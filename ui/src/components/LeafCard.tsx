@@ -11,6 +11,8 @@ import {Difficulty} from '@/components/Difficulty'
 /**
  * LeadCard:
  * Displays the name, leaf image, description/fact, and button to redirect to its respective page. 
+ * 
+ * @authors Wenda, Sean, Connor
  */
 
 const images = {RedMapleLeaf, RedOak, SugarMaple, Larch, YellowBirch}

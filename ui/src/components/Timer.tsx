@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
  * Connor's page
  * Countdown timer component
  * This component is used to create a countdown timer that starts from a given number of seconds and counts down to zero.
+ * 
+ * @authors Connor
  */
 
 type CountdownTimerProps = {

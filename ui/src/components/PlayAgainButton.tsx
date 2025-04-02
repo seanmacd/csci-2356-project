@@ -1,6 +1,8 @@
 /**
  * Create play again button component Wenda.
  * No longer used, was used in phase 1. 
+ * 
+ * @authors Wenda
  */
 export function PlayAgainButton() {
   return (

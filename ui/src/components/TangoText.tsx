@@ -5,6 +5,8 @@ import {PlayAudio} from './PlayAudio'
 /**
  * TangoText Sean:
  * Image of tango with a chat bubble of text. Also has audio to play what text says as long as implemented.
+ * 
+ * @authors Sean
  */
 
 export function TangoText({text, audio}: {text: string; audio: string}) {

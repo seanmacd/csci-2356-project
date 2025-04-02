@@ -3,6 +3,8 @@ import {SpeakerHigh} from '@phosphor-icons/react'
 /**
  * PlayAudio:
  * Playing audio src. 
+ * 
+ * @authors Sean
  */
 
 type AudioSource = {

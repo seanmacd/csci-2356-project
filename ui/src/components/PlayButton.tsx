@@ -1,6 +1,8 @@
 /**
- * Play button Wenda:
+ * Play button:
  * When press play it will redirect to where link goes.
+ * 
+ * @authors Wenda
  */
 
 export function PlayButton({link}: {link: string}) {

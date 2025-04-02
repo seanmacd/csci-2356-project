@@ -23,6 +23,8 @@ import { GameModal } from './GameModal';
  * Draws randomized bugs on leaf canvas. Allows users to click on bug to get rid of them and increase saturation
  * on leaf until all bugs are completed. Also implements GameModal and Timer componenets giving the user a score based on how
  * fast they got rid of the bugs.
+ * 
+ * @authors Connor, Wenda, Sean
  */
 
 const bugImages = [

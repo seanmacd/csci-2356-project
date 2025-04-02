@@ -2,6 +2,7 @@
  * Create header component Connor
  * 
  * No longer used, was used in Phase 1. 
+ * @authors Wenda, Sean, Connor
  */
 
 type HeaderProps = {

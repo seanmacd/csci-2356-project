@@ -1,5 +1,10 @@
 import {SpeakerHigh} from '@phosphor-icons/react'
 
+/**
+ * Textbox for tango to tell user anything we want. 
+ * 
+ * @authors Sean
+ */
 type TextBoxProps = {
   image : string
   imageAltText: string
