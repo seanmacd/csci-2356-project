@@ -1,10 +1,12 @@
 //Rongkun's Page
 
-import sugarMapleAudio from '@/assets/audio/sugarMaple.mp3'
+import HowToPlayAudio from '@/assets/audio/HowToPlay.mp3'
 import sugarMaplePhoto from '@/assets/leafPhotos/SugarMaple_Cartoon.png'
-import {PlayAgainButton, TangoText} from '@/components'
+import {TextBox} from '@/components'
 import {LeafNameHeader} from '@/components/LeafNameHeader'
 import DrawBugs from '@/components/DrawBugs'
+import Tango from '@/assets/tangoPhotos/tango-talking.png'
+
 
 const bugPositions: [number, number][] = [
   [181, 20],
@@ -34,16 +36,13 @@ export function SugarMapleLeafPage() {
           <DrawBugs canvasId="sugarMaple" leafImageSrc={sugarMaplePhoto} bugPositions={bugPositions}/>        
         </div>
 
-        <div className="flex justify-center">
-          <PlayAgainButton />
-        </div>
-
-        <div className="spacing">
-          <TangoText
-            text="This is a sugar maple leaf! Did you know this tree is where maple syrup comes from?"
-            audio={sugarMapleAudio}
-          />
-        </div>
+        <TextBox
+        image={Tango} 
+        imageAltText='Tango the fox' 
+        headerText='How To Play?' 
+        subText='Click the bug to begin the game. Clear all the bugs within 30 seconds and I will reward you with some acorns!'
+        audioSrc={HowToPlayAudio}
+        ></TextBox>
       </main>
     </div>
   )
