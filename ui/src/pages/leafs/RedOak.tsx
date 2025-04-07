@@ -13,6 +13,7 @@ import DrawBugs from '@/components/DrawBugs'
 const bugPositions: [number, number][] = [
   [25, 330],
   [130, 315],
+  [80, 120],
   [250, 300],
   [330, 190],
   [300, 15],
@@ -41,7 +42,7 @@ export function RedOakLeafPage() {
           image={Tango} 
           imageAltText='Tango the fox' 
           headerText='How To Play?' 
-          subText='Click the bug to begin the game. Clear all the bugs within 30 seconds and I will reward you with some acorns!'
+          subText='Click the bug to begin the game. Clear all the bugs within 15 seconds and I will reward you with some acorns!'
           audioSrc={Redoak}
           ></TextBox>
         </div>

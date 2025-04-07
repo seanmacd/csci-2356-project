@@ -42,7 +42,7 @@ export function LarchLeafPage() {
             image={Tango} 
             imageAltText='Tango the fox' 
             headerText='How To Play?' 
-            subText='Click the bug to begin the game. Clear all the bugs within 30 seconds and I will reward you with some acorns!'
+            subText='Click the bug to begin the game. Clear all the bugs within 15 seconds and I will reward you with some acorns!'
             audioSrc={HowToPlayAudio}
             ></TextBox>
           </div>
