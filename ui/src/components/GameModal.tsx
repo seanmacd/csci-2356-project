@@ -23,9 +23,9 @@ export function GameModal({score, Highscore}: GameModalProps) {
 
   let acornImages
 
-  if (scoreNum >= 15) {
+  if (scoreNum >= 10) {
     acornImages = [AcornColoured, AcornColoured, AcornColoured]
-  } else if (scoreNum >= 10) {
+  } else if (scoreNum >= 5) {
     acornImages = [AcornColoured, AcornColoured, AcornUncoloured]
   } else if (scoreNum >= 1) {
     acornImages = [AcornColoured, AcornUncoloured, AcornUncoloured]
@@ -36,7 +36,7 @@ export function GameModal({score, Highscore}: GameModalProps) {
   let completion;
 
   if (scoreNum === 0) {
-    completion = "FAILED!"
+    completion = "NOOOOOOO!"
   } else {
     completion = "COMPLETE!"
   }

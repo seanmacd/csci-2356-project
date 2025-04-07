@@ -13,12 +13,10 @@ import Tango from '@/assets/tangoPhotos/tango-talking.png'
 const bugPositions: [number, number][] = [
   [320, 50],
   [55, 280],
-  [67, 150],
-  [125, 75],
-  [220, 60],
-  [300, 150],
-  [265, 250],
-  [180, 290],
+  [105, 100],
+  [200, 60],
+  [300, 200],
+  [220, 280],
 ]
 
 export function YellowBirchLeafPage() {
@@ -40,7 +38,7 @@ export function YellowBirchLeafPage() {
           image={Tango} 
           imageAltText='Tango the fox' 
           headerText='How To Play?' 
-          subText='Click the bug to begin the game. Clear all the bugs within 30 seconds and I will reward you with some acorns!'
+          subText='Click the bug to begin the game. Clear all the bugs within 15 seconds and I will reward you with some acorns!'
           audioSrc={HowToPlayAudio}
           ></TextBox>
         </div>

@@ -277,7 +277,7 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
     <>
       <div className="flex flex-col items-center">
         <div className="flex items-center justify-center mt-4 space-x-4">
-          <Timer startSeconds={30} isActive={startTimer} onTimeUpdate={handleTimeUpdate} />
+          <Timer startSeconds={15} isActive={startTimer} onTimeUpdate={handleTimeUpdate} />
         </div>
         <canvas
           id={canvasId}

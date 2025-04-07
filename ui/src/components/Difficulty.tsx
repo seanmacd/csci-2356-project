@@ -4,6 +4,14 @@ type DifficultyProps = {
   difficulty : number
 }
 
+/**
+ *  Difficulty Component by Sean:
+ *  1. Easy: 7 bugs
+ *  2. Medium: 9 bugs
+ *  3. Hard: 12 bugs
+ * 
+ */
+
 export function Difficulty({difficulty} : DifficultyProps){
   if (difficulty === 1){
     return (

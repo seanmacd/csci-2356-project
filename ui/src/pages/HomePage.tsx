@@ -14,13 +14,6 @@ import {LeafCard} from '@/components/LeafCard'
 export function HomePage() {
   const leafCardData: LeafCardProps[] = [
     {
-      name: 'Red Maple',
-      description: 'This is a Red Maple Leaf! Their leaves can turn bright red, yellow, or even orange!',
-      image: 'RedMapleLeaf',
-      href: '/leaf/red-maple',
-      difficulty: 1
-    },
-    {
       name: 'Yellow Birch',
       description: 'This is a coastal yellow birch leaf! Did you know their twigs smell like minty gum?',
       image: 'YellowBirch',
@@ -28,10 +21,10 @@ export function HomePage() {
       difficulty: 1
     },
     {
-      name: 'Sugar Maple',
-      description: 'This is a sugar maple leaf! Did you know this tree is where maple syrup comes from?',
-      image: 'SugarMaple',
-      href: '/leaf/sugar-maple',
+      name: 'Red Maple',
+      description: 'This is a Red Maple Leaf! Their leaves can turn bright red, yellow, or even orange!',
+      image: 'RedMapleLeaf',
+      href: '/leaf/red-maple',
       difficulty: 2
     },
     {
@@ -46,6 +39,13 @@ export function HomePage() {
       description: 'This is a larch leaf! Unlike pine trees, larch trees lose their needles in the fall!',
       image: 'Larch',
       href: '/leaf/larch',
+      difficulty: 2
+    },
+    {
+      name: 'Sugar Maple',
+      description: 'This is a sugar maple leaf! Did you know this tree is where maple syrup comes from?',
+      image: 'SugarMaple',
+      href: '/leaf/sugar-maple',
       difficulty: 3
     }
   ]
