@@ -15,6 +15,8 @@ import Squash1 from '@/assets/audio/Bug-Hit-001.mp3';
 import Squash2 from '@/assets/audio/Bug-Hit-002.mp3';
 import Squash3 from '@/assets/audio/Bug-Hit-003.mp3';
 import Squash4 from '@/assets/audio/Bug-Hit-004.mp3';
+import Complete from '@/assets/audio/Complete.mp3';
+import Failed from '@/assets/audio/Failed.mp3';
 import { Timer } from './Timer';
 import { GameModal } from './GameModal';
 
@@ -273,6 +275,15 @@ export default function BugCanvas({ canvasId, leafImageSrc, bugPositions }: Prop
   }
 
   // Finally displaying the data
+  useEffect(() => {
+    if (isModalOpen) {
+      const sound = score > 0 
+        ? new Audio(Complete) 
+        : new Audio(Failed);
+      sound.play();
+    }
+  }, [isModalOpen, score]);
+
   return (
     <>
       <div className="flex flex-col items-center">
